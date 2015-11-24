@@ -21,7 +21,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="./">
-                    <img src="assets/imgs/miage.png" width="150" />
+                    <img src="assets/imgs/miage.png" width="150" alt="Miage"/>
                     <p style="font-size: 11px">Méthodes Informatiques Appliquées<br> à la Gestion des Entreprise</p>
                 </a>
             </div>
@@ -36,9 +36,9 @@
     </nav>
 </header>
 
-<div class="container-fluid">
+<section class="container-fluid">
     <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
+        <article class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
                 <li class="active"><a href="#"><i class="flaticon-graduation-cap2"></i> Pédagogie</a></li>
                 <li><a href="#"><i class="flaticon-mark1"></i> Spécialisations</a></li>
@@ -47,16 +47,21 @@
                 <li><a href="#"><i class="flaticon-pin66"></i> Nous localiser</a></li>
                 <li><a href="#"><i class="flaticon-downloading"></i> Téléchargement</a></li>
             </ul>
-        </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+            <div id="content-img">
+                <img class="img-align" src="assets/imgs/upjv.jpg" alt="UPVJ Picardie" width="120">
+            </div>
+
+        </article>
+        <article class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <h1 class="page-header">Page Introuvable !</h1>
 
             <div class="content">
                 <p>Erreur 404 !</p>
             </div>
-        </div>
+        </article>
     </div>
-</div>
+</section>
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
