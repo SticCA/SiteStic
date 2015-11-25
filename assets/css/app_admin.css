@@ -1,0 +1,91 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    padding-bottom: 20px;
+}
+
+.img-align{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.navbar-fixed-top {
+    border: 0;
+}
+
+#content-img{
+    margin-top: 200px;
+}
+
+/* Style Boostrap */
+
+.sidebar {
+    display: block;
+    background-color: #ECF0F1;
+    border-right: 1px solid black;
+}
+
+@media (min-width: 768px) {
+    .sidebar {
+        position: fixed;
+        top: 0px;
+        bottom: 0;
+        left: 0;
+        z-index: 1000;
+        display: block;
+        padding: 20px;
+        overflow-x: hidden;
+        overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+        background-color: #ECF0F1;
+        border-right: 1px solid black;
+    }
+}
+
+.nav-sidebar {
+    margin-right: -21px; /* 20px padding + 1px border */
+    margin-bottom: 20px;
+    margin-left: -20px;
+}
+
+.nav-sidebar > li > a {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.nav-sidebar a {
+    color: #f9f9ff;
+}
+
+.nav>li>a:focus,
+.nav>li>a:hover {
+    color: #f9f9ff;
+    background-color: #428bca;
+}
+
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+    color: #f9f9ff;
+    background-color: #428bca;
+}
+
+.main {
+    padding: 20px;
+}
+
+@media (min-width: 768px) {
+    .main {
+        padding-right: 40px;
+        padding-left: 40px;
+    }
+}
+
+.main .page-header {
+    margin-top: 0;
+}
+
+

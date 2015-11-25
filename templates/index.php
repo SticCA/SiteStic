@@ -6,7 +6,7 @@
     <title></title>
     <link rel="stylesheet" href="assets/css/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/flaticon.css">
-    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="stylesheet" href="assets/css/app_<?php echo $site; ?>.css">
 </head>
 <body>
 
@@ -20,9 +20,14 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="./">
-                        <img src="assets/imgs/miage.png" width="150" alt="Miage"/>
-                        <p style="font-size: 11px">Méthodes Informatiques Appliquées<br> à la Gestion des Entreprise</p>
+                    <a class="navbar-brand" href="./<?php echo $site; ?>">
+                        <?php if($site == "miage"){ ?>
+                            <img src="assets/imgs/miage.png" width="150" alt="Miage"/>
+                            <p style="font-size: 11px">Méthodes Informatiques Appliquées<br> à la Gestion des Entreprise</p>
+                        <?php }elseif($site == "2ibs"){ ?>
+                            <h1 id="titre_2IBS">2IBS</h1>
+                            <p style="font-size: 11px">Informatique et Instrumentation pour<br> la Biologie et la Santé</p>
+                        <?php } ?>
                     </a>
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
