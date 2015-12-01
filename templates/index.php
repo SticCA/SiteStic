@@ -45,7 +45,7 @@
     <section class="container-fluid">
         <div class="row">
             <article class="col-sm-3 col-md-2 sidebar">
-                <ul class="nav nav-sidebar">
+                <ul class="nav nav-sidebar" id="sidebar-menu">
                     <li class="active"><a href="#"><i class="flaticon-graduation-cap2"></i> Pédagogie</a></li>
                     <li><a href="#"><i class="flaticon-mark1"></i> Spécialisations</a></li>
                     <li><a href="#"><i class="flaticon-briefcase69"></i> Professionnalisation</a></li>
@@ -95,6 +95,13 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad deleniti, doloremque eos ex illum incidunt laudantium minus molestiae nam omnis placeat quos tempora vel voluptas. Atque doloremque nostrum veritatis?
+                        </div>
+                    </div>
+
                 </div>
             </article>
         </div>

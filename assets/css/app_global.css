@@ -1,5 +1,14 @@
+#sidebar-menu li{
+    margin-left: -24px;
+    text-align: justify;
+}
+
+#sidebar-menu li a{
+    font-size: 16px;
+}
+
 .box{
-    margin-left: 10px;
+    margin-left: 0px;
     margin-bottom: 5px;
     border: 1px solid black;
     border-radius: 5px;
