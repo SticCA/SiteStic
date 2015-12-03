@@ -6,8 +6,8 @@
     <title></title>
     <link rel="stylesheet" href="assets/css/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/flaticon.css">
-    <link rel="stylesheet" href="assets/css/app_<?php echo $site; ?>.css">
     <link rel="stylesheet" href="assets/css/app_global.css">
+    <link rel="stylesheet" href="assets/css/app_<?php echo $site; ?>.css">
 </head>
 <body>
 
@@ -60,7 +60,13 @@
 
             </article>
             <article class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                <h1 class="page-header">Master Méthodes Informatiques Appliquées à la Gestion des Entreprise - Amiens</h1>
+                <h1 class="page-header">
+                    <?php if($site == "miage"){ ?>
+                    Master Méthodes Informatiques Appliquées à la Gestion des Entreprise - Amiens
+                    <?php }elseif($site == "2ibs"){ ?>
+                    Informatique et Instrumentation pour la Biologie et la Santé - Amiens
+                    <?php } ?>
+                </h1>
 
                 <div class="content">
                     <div class="row">
@@ -97,8 +103,14 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-12">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad deleniti, doloremque eos ex illum incidunt laudantium minus molestiae nam omnis placeat quos tempora vel voluptas. Atque doloremque nostrum veritatis?
+                        <div class="col-md-12 toggle">
+                            <header>
+                                <i class="flaticon-worldgrid"></i>
+                            </header>
+
+                            <article>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad deleniti, doloremque eos ex illum incidunt laudantium minus molestiae nam omnis placeat quos tempora vel voluptas. Atque doloremque nostrum veritatis?
+                            </article>
                         </div>
                     </div>
 

@@ -9,16 +9,18 @@
 
 .box{
     margin-left: 0px;
-    margin-bottom: 5px;
+    margin-right: 0px;
+    margin-bottom: 30px;
     border: 1px solid black;
     border-radius: 5px;
-    padding: 3px 5px 2px 5px;
+    padding: 3px 0px 2px 0px;
+    height: 100px;
 }
 
 .box p {
     font-size: 15px;
     text-align: center;
-    margin-top: 25px;
+    margin-top: 18px;
 }
 
 #circle{
@@ -31,4 +33,16 @@
     font-size: 18px;
     text-align: center;
     margin-top: 25px;
+}
+
+.toggle article{
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.flaticon-worldgrid:before{
+    font-size: 40px;
+}
+.flaticon-worldgrid{
+    color:white;
 }
