@@ -4,21 +4,5 @@
 
 class ConstanteArray
 {
-    private static $array = array();
-
-    /**
-     * @return array
-     */
-    public static function getArray($key)
-    {
-        return self::$array[$key];
-    }
-
-    /**
-     * @param array $array
-     */
-    public static function setArray($key, $data)
-    {
-        self::$array[$key] = $data;
-    }
+    public static $config = array();
 }
