@@ -6,10 +6,10 @@ require 'app/BDD.php';
 require 'app/ConstanteArray.php';
 
 // fichier de variable d'environnement
-include('app/variable.ini.php');
+include('app/variables.ini.php');
 
 // Base de donnée
-$ACCES_BASE = new BDD(HOST_BDD, LOGIN_BDD, PWD_BDD);
+//$ACCES_BASE = new BDD(HOST_BDD, LOGIN_BDD, PWD_BDD);
 //$tmp = $ACCES_BASE->InsertBDD("test", ["name"=>'toto',"pwd"=>123]);
 
 // Init Framework Slim
@@ -37,7 +37,7 @@ $app->get('/admin', function () use ($app) {
 // Accueil miage / 2ibs
 $app->get('/(:site)', function ($site = "miage") use ($app) {
 
-    if(in_array($site, ConstanteArray::getArray('SITE_AVAILABLE'))){
+    if(in_array($site, ConstanteArray::$config['SITE_AVAILABLE'])){
         $app->render('index.php', array('site' => $site));
     }else{
         $app->notFound();
