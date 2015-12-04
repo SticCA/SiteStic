@@ -18,6 +18,12 @@ ConstanteArray::$config['SITE_AVAILABLE'] = array(
     "2ibs"
 );
 
+// Site ID
+ConstanteArray::$config['SITE_ID'] = array(
+    "miage" => 1,
+    "2ibs" => 2,
+);
+
 // page du site avec leur id
 ConstanteArray::$config['PAGE_SITE_ID'] = array(
     "accueil" => 1,

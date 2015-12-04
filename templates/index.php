@@ -4,9 +4,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name='viewport' content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <title></title>
+    <link rel="icon" type="image/png" href="assets/imgs/upjv.png" />
     <link rel="stylesheet" href="assets/css/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/flaticon.css">
     <link rel="stylesheet" href="assets/css/app_global.css">
+    <link rel="stylesheet" href="assets/css/app_global_mobile.css">
     <link rel="stylesheet" href="assets/css/app_<?php echo $site; ?>.css">
 </head>
 <body>
@@ -120,7 +122,7 @@
     </section>
 </body>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="assets/css/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.js"></script>
+    <script type="text/javascript" src="assets/css/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="assets/js/app.js"></script>
 </html>

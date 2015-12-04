@@ -1,0 +1,16 @@
+@media screen and (max-width: 991px) {
+
+    #content-img{
+        margin-top: 0;
+        padding-bottom: 5%;
+    }
+
+    .box{
+        height: inherit;
+    }
+
+    #circle{
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
