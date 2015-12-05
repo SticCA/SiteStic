@@ -3,8 +3,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name='viewport' content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-    <title></title>
-    <link rel="icon" type="image/png" href="assets/imgs/upjv.png" />
+    <title>Accueil - <?php echo strtoupper($site); ?></title>
+    <link rel="icon" type="image/png" href="assets/imgs/upjv.jpg" />
     <link rel="stylesheet" href="assets/css/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/flaticon.css">
     <link rel="stylesheet" href="assets/css/app_global.css">
@@ -35,9 +35,9 @@
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Accueil</a></li>
-                        <li><a href="#about">Candidater</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li class="active"><a href="./<?php echo $site; ?>">Accueil</a></li>
+                        <li><a href="./<?php echo $site; ?>/candidater">Candidater</a></li>
+                        <li><a href="./<?php echo $site; ?>/contact">Contact</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
@@ -48,12 +48,12 @@
         <div class="row">
             <article class="col-sm-3 col-md-2 sidebar">
                 <ul class="nav nav-sidebar" id="sidebar-menu">
-                    <li class="active"><a href="#"><i class="flaticon-graduation-cap2"></i> Pédagogie</a></li>
-                    <li><a href="#"><i class="flaticon-mark1"></i> Spécialisations</a></li>
-                    <li><a href="#"><i class="flaticon-briefcase69"></i> Professionnalisation</a></li>
-                    <li><a href="#"><i class="flaticon-suitcase58"></i> Débouchés</a></li>
-                    <li><a href="#"><i class="flaticon-pin66"></i> Nous localiser</a></li>
-                    <li><a href="#"><i class="flaticon-downloading"></i> Téléchargement</a></li>
+                    <li><a href="<?php echo $site; ?>/pedagogie"><i class="flaticon-graduation-cap2"></i> Pédagogie</a></li>
+                    <li><a href="<?php echo $site; ?>/specialisations"><i class="flaticon-mark1"></i> Spécialisations</a></li>
+                    <li><a href="<?php echo $site; ?>/professionnalisation"><i class="flaticon-briefcase69"></i> Professionnalisation</a></li>
+                    <li><a href="<?php echo $site; ?>/debouches"><i class="flaticon-suitcase58"></i> Débouchés</a></li>
+                    <li><a href="<?php echo $site; ?>/nous-localiser"><i class="flaticon-pin66"></i> Nous localiser</a></li>
+                    <li><a href="<?php echo $site; ?>/telechargement"><i class="flaticon-downloading"></i> Téléchargement</a></li>
                 </ul>
 
                 <div id="content-img">
