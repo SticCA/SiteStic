@@ -108,6 +108,7 @@
                         <div class="col-md-12 toggle">
                             <header>
                                 <i class="flaticon-worldgrid"></i>
+                                <span><i class="flaticon-arrow483"></i></span>
                             </header>
 
                             <article>

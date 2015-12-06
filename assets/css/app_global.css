@@ -51,9 +51,18 @@
     border-bottom-right-radius: 5px;
 }
 
-.flaticon-worldgrid:before{
+.toggle header span{
+    float: right;
+    margin-right: 10px;
+    transform: rotate(180deg);
+    -ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg);
+    cursor: pointer;
+}
+
+.flaticon-worldgrid:before, .flaticon-arrow483:before{
     font-size: 40px;
 }
-.flaticon-worldgrid{
+.flaticon-worldgrid, .flaticon-arrow483{
     color:white;
 }
