@@ -6,5 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Slim\\Middleware\\' => array($vendorDir . '/tuupola/slim-basic-auth/src'),
     'App\\' => array($baseDir . '/app'),
 );

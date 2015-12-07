@@ -105,18 +105,72 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-12 toggle">
+                        <div class="col-md-12 toggle" data-toggle="toggle1">
                             <header>
                                 <i class="flaticon-worldgrid"></i>
-                                <span><i class="flaticon-arrow483"></i></span>
+                                <span class="titre-toggle">Réseaux MIAGE en France</span>
+                                <span class="arrow-toggle"><i class="flaticon-arrow483"></i></span>
                             </header>
 
-                            <article>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad deleniti, doloremque eos ex illum incidunt laudantium minus molestiae nam omnis placeat quos tempora vel voluptas. Atque doloremque nostrum veritatis?
+                            <article class="row" id="toggle1">
+                                <div class="col-md-6">
+                                    <img class="img-reponsive" src="assets/imgs/e-miage.png" alt="e-miage">
+                                </div>
+                                <div class="col-md-6">
+                                    <ul>
+                                        <li>Aix-Marseille</li>
+                                        <li>Amiens</li>
+                                        <li>Bordeaux</li>
+                                        <li>Grenoble</li>
+                                        <li>Lille</li>
+                                        <li>Lyon</li>
+                                        <li>Rennes</li>
+                                        <li>Toulouse</li>
+                                        <li>Mulhouse</li>
+                                        <li>Nancy</li>
+                                        <li>Nantes</li>
+                                        <li>Nice</li>
+                                        <li>Orléans</li>
+                                        <li>Paris et Ile-de-France</li>
+                                    </ul>
+                                </div>
                             </article>
                         </div>
                     </div>
 
+                    <div class="row">
+                        <div class="col-md-12 toggle" data-toggle="toggle2">
+                            <header>
+                                <i class="flaticon-worldgrid"></i>
+                                <span class="titre-toggle">Réseaux MIAGE en France</span>
+                                <span class="arrow-toggle"><i class="flaticon-arrow483"></i></span>
+                            </header>
+
+                            <article class="row" id="toggle2">
+                                <div class="col-md-6">
+                                    <img class="img-reponsive" src="assets/imgs/e-miage.png" alt="e-miage">
+                                </div>
+                                <div class="col-md-6">
+                                    <ul>
+                                        <li>Aix-Marseille</li>
+                                        <li>Amiens</li>
+                                        <li>Bordeaux</li>
+                                        <li>Grenoble</li>
+                                        <li>Lille</li>
+                                        <li>Lyon</li>
+                                        <li>Rennes</li>
+                                        <li>Toulouse</li>
+                                        <li>Mulhouse</li>
+                                        <li>Nancy</li>
+                                        <li>Nantes</li>
+                                        <li>Nice</li>
+                                        <li>Orléans</li>
+                                        <li>Paris et Ile-de-France</li>
+                                    </ul>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
                 </div>
             </article>
         </div>

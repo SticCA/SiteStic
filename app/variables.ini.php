@@ -12,6 +12,10 @@ const HOST_BDD = "mysql:dbname=site-stic;host=127.0.0.1";
 const LOGIN_BDD = "root";
 const PWD_BDD = "root";
 
+ConstanteArray::$config['COMPTE_ADMIN'] = array(
+    "root" => "root",
+);
+
 // Site Disponible
 ConstanteArray::$config['SITE_AVAILABLE'] = array(
     "miage",

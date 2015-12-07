@@ -11,6 +11,15 @@ include('app/variables.ini.php');
 // Init Framework Slim
 $app = new \Slim\Slim();
 
+// Authentification HTTP pour l'espace Admin
+$app->add(new \Slim\Middleware\HttpBasicAuthentication([
+    "path" => "/admin",
+    "realm" => "Connexion Administration Site STIC",
+    "secure" => true,
+    "relaxed" => ["localhost", "local.dev"],
+    "users" => ConstanteArray::$config['COMPTE_ADMIN']
+]));
+
 // config du mode debug et du dossier
 // contenant les templates
 $app->config(array(
