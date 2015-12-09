@@ -18,7 +18,7 @@ body {
 }
 
 #content-img{
-    margin-top: 200px;
+    margin-top: 50%;
 }
 
 /* Style Boostrap */
@@ -46,24 +46,25 @@ body {
 }
 
 .nav-sidebar {
+    display: block;
+    margin-top: 10px;
     margin-right: -21px; /* 20px padding + 1px border */
     margin-bottom: 20px;
-    margin-left: -20px;
-}
-
-.nav-sidebar > li > a {
-    padding-right: 20px;
-    padding-left: 20px;
+    margin-left: -5px;
 }
 
 .nav-sidebar a {
-    color: #f9f9ff;
+    color: #000000;
+}
+
+.nav>li>a {
+    padding: 5px 10px;
 }
 
 .nav>li>a:focus,
 .nav>li>a:hover {
-    color: #f9f9ff;
-    background-color: #428bca;
+    color: #428bca;
+    background-color: #ECF0F1;
 }
 
 .nav-sidebar > .active > a,

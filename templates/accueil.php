@@ -131,7 +131,7 @@
                                         <li>Nantes</li>
                                         <li>Nice</li>
                                         <li>Orléans</li>
-                                        <li>Paris et Ile-de-France</li>
+                                        <li>Paris et Ile-de-France (7 universités)</li>
                                     </ul>
                                 </div>
                             </article>

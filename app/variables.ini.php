@@ -6,6 +6,7 @@
 
 // Source Html/php dossier
 const TEMPLATE_FOLDER = "templates";
+const CONTENT_FOLDER = "content";
 
 // Information BDD
 const HOST_BDD = "mysql:dbname=site-stic;host=127.0.0.1";
@@ -14,6 +15,12 @@ const PWD_BDD = "root";
 
 ConstanteArray::$config['COMPTE_ADMIN'] = array(
     "root" => "root",
+);
+
+ConstanteArray::$config['DOMAINE_OK'] = array(
+    "localhost",
+    "local.dev",
+    "192.168.0.30",
 );
 
 // Site Disponible

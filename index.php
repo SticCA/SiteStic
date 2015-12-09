@@ -16,7 +16,7 @@ $app->add(new \Slim\Middleware\HttpBasicAuthentication([
     "path" => "/admin",
     "realm" => "Connexion Administration Site STIC",
     "secure" => true,
-    "relaxed" => ["localhost", "local.dev"],
+    "relaxed" => ConstanteArray::$config['DOMAINE_OK'],
     "users" => ConstanteArray::$config['COMPTE_ADMIN']
 ]));
 
@@ -28,7 +28,7 @@ $app->config(array(
 ));
 
 // Base de donnée
-//$app->ACCES_BASE = new BDD(HOST_BDD, LOGIN_BDD, PWD_BDD);
+$app->ACCES_BASE = new BDD(HOST_BDD, LOGIN_BDD, PWD_BDD);
 //$tmp = $app->ACCES_BASE->InsertBDD("test", ["name"=>'toto',"pwd"=>123]);
 
 //////////////////////////////////////////////////////////////////////////
@@ -40,9 +40,23 @@ $app->notFound(function() use ($app) {
 
 //////////////////////////////////////////////////////////////////////////
 
-// Accueil admin
-$app->get('/admin', function () use ($app) {
-    $app->render('admin/index.php');
+// Accueil admin + gestion des formulaires
+$app->get('/admin(/)(:site)(/)(:page)', function ($site = "", $page = "") use ($app) {
+
+    if(!empty($page)){
+
+        if(file_exists(TEMPLATE_FOLDER . '/admin/'. CONTENT_FOLDER . '/'. $page .'.php')){
+            $app->render('admin/index.php', array('content' => '', 'page' => $page , 'site' => $site));
+        }else{
+            $app->notFound();
+        }
+    }else{
+        $app->render('admin/index.php', array('page' => $page, 'site' => $site));
+    }
+});
+
+$app->post('/admin/traitement/:site/:page', function ($site, $page) use ($app) {
+    print_r($app->request()->post());
 });
 
 //////////////////////////////////////////////////////////////////////////
@@ -59,6 +73,8 @@ $app->get('/(:site)', function ($site = "miage") use ($app) {
     }
 });
 
+
+// Gestion Page interne au site
 $app->get('/(:site)(/)(:page)', function ($site = "miage", $page) use ($app) {
 
     if(in_array($site, ConstanteArray::$config['SITE_AVAILABLE'])
