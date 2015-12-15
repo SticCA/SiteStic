@@ -46,6 +46,9 @@ $app->get('/admin(/)(:site)(/)(:page)', function ($site = "", $page = "") use ($
     if(!empty($page)){
 
         if(file_exists(TEMPLATE_FOLDER . '/admin/'. CONTENT_FOLDER . '/'. $page .'.php')){
+
+            // @todo recup les data !!! dans content
+
             $app->render('admin/index.php', array('content' => '', 'page' => $page , 'site' => $site));
         }else{
             $app->notFound();
@@ -56,7 +59,16 @@ $app->get('/admin(/)(:site)(/)(:page)', function ($site = "", $page = "") use ($
 });
 
 $app->post('/admin/traitement/:site/:page', function ($site, $page) use ($app) {
-    print_r($app->request()->post());
+
+    $data = $app->request()->post();
+    $site_id = ConstanteArray::$config['SITE_ID'][$site];
+    $page_id = ConstanteArray::$config['PAGE_SITE_ID'][$page];
+
+    // delete des infos deja presentes
+    $app->ACCES_BASE->DeleteBDD('page_content', $site_id, $page_id);
+
+    print_r($data);
+
 });
 
 //////////////////////////////////////////////////////////////////////////

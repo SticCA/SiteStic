@@ -9,8 +9,36 @@
     <link rel="stylesheet" href="<?php echo $directory; ?>assets/css/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo $directory; ?>assets/css/flaticon.css">
     <link rel="stylesheet" href="<?php echo $directory; ?>assets/css/app_admin.css">
-    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
-    <script>tinymce.init({ selector: 'textarea', height : 200 });</script>
+    <script type="text/javascript" src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: 'textarea',
+            height: 300,
+            theme: 'modern',
+            plugins: [
+                'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+                'searchreplace wordcount visualblocks visualchars code fullscreen',
+                'insertdatetime media nonbreaking save table contextmenu directionality',
+                'emoticons template paste textcolor colorpicker textpattern imagetools'
+            ],
+            toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent',
+            toolbar2: 'link image | forecolor backcolor emoticons',
+            image_advtab: true,
+            templates: [
+                { title: 'Test template 1', content: 'Test 1' },
+                { title: 'Test template 2', content: 'Test 2' }
+            ],
+            image_list: [
+                {title: 'Logo UPJV', value: '../../assets/imgs/upjv.jpg'},
+                {title: 'Plan UPJV', value: '../../assets/imgs/plan.jpg'}
+            ],
+            //external_image_list_url : "myexternallist.js",
+            content_css: [
+                '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
+                '//www.tinymce.com/css/codepen.min.css'
+            ]
+        });
+    </script>
 </head>
 <body>
 
@@ -62,7 +90,7 @@
 
         </article>
         <article class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h1 class="page-header">Administration <?php echo ucfirst($page) . " - " . strtoupper($site) ?></h1>
+            <h1 class="page-header">Administration <?php if($site) echo ucfirst($page) . " - " . strtoupper($site) ?></h1>
 
             <div class="content">
                 <?php if(empty($page)){ ?><p id="info">Sélectionnez un site et une page pour continuer ...</p><?php }else{ ?>

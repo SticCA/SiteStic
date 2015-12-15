@@ -53,6 +53,19 @@ class BDD
         }
     }
 
+    public function DeleteBDD($table, $site_id, $page_id)
+    {
+        $req = $this->bdd->prepare("DELETE FROM " . $table . "WHERE SITE_ID=:site_id AND PAGE_ID=:page_id");
+        $req->bindParam(':site_id', $site_id, PDO::PARAM_INT);
+        $req->bindParam(':page_id', $page_id, PDO::PARAM_INT);
+
+        if ($req->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     /**
      * @return mixed
      */

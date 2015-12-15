@@ -89,4 +89,17 @@ body {
     margin-top: 0;
 }
 
+.form-control{
+    width: 60%;
+}
 
+#addBloc{
+    float: right;
+}
+
+.delBloc{
+    float: right;
+    position: relative;
+    top: -10px;
+    cursor: pointer;
+}
