@@ -11,33 +11,35 @@
     <link rel="stylesheet" href="<?php echo $directory; ?>assets/css/app_admin.css">
     <script type="text/javascript" src="//cdn.tinymce.com/4/tinymce.min.js"></script>
     <script type="text/javascript">
-        tinymce.init({
-            selector: 'textarea',
-            height: 300,
-            theme: 'modern',
-            plugins: [
-                'advlist autolink lists link image charmap print preview hr anchor pagebreak',
-                'searchreplace wordcount visualblocks visualchars code fullscreen',
-                'insertdatetime media nonbreaking save table contextmenu directionality',
-                'emoticons template paste textcolor colorpicker textpattern imagetools'
-            ],
-            toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent',
-            toolbar2: 'link image | forecolor backcolor emoticons',
-            image_advtab: true,
-            templates: [
-                { title: 'Test template 1', content: 'Test 1' },
-                { title: 'Test template 2', content: 'Test 2' }
-            ],
-            image_list: [
-                {title: 'Logo UPJV', value: '../../assets/imgs/upjv.jpg'},
-                {title: 'Plan UPJV', value: '../../assets/imgs/plan.jpg'}
-            ],
-            //external_image_list_url : "myexternallist.js",
-            content_css: [
-                '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
-                '//www.tinymce.com/css/codepen.min.css'
-            ]
-        });
+        function initTinyMce(id){
+            tinymce.init({
+                selector: '#textarea'+id,
+                height: 300,
+                theme: 'modern',
+                plugins: [
+                    'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+                    'searchreplace wordcount visualblocks visualchars code fullscreen',
+                    'insertdatetime media nonbreaking save table contextmenu directionality',
+                    'emoticons template paste textcolor colorpicker textpattern imagetools'
+                ],
+                toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent',
+                toolbar2: 'link image | forecolor backcolor emoticons',
+                image_advtab: true,
+                templates: [
+                    { title: 'Test template 1', content: 'Test 1' },
+                    { title: 'Test template 2', content: 'Test 2' }
+                ],
+                image_list: [
+                    {title: 'Logo UPJV', value: '../../assets/imgs/upjv.jpg'},
+                    {title: 'Plan UPJV', value: '../../assets/imgs/plan.jpg'}
+                ],
+                //external_image_list_url : "myexternallist.js",
+                content_css: [
+                    '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
+                    '//www.tinymce.com/css/codepen.min.css'
+                ]
+            });
+        }
     </script>
 </head>
 <body>
@@ -59,27 +61,25 @@
                 <div role="tabpanel" class="tab-pane fade <?php if($site == "miage") {?>active in<?php } ?>" id="miage" aria-labelledby="miage-tab">
                     <ul class="nav nav-sidebar">
                         <li class="<?php if($site == "miage" && $page == "accueil") {?>active<?php } ?>"><a href="<?php echo $directory; ?>admin/miage/accueil">Accueil</a></li>
-                        <li class="<?php if($site == "miage" && $page == "") {?>active<?php } ?>"><a href="#">Candidater</a></li>
-                        <li class="<?php if($site == "miage" && $page == "") {?>active<?php } ?>"><a href="#">Contact</a></li>
-                        <li class="<?php if($site == "miage" && $page == "") {?>active<?php } ?>"><a href="#">Pédagogie</a></li>
-                        <li class="<?php if($site == "miage" && $page == "") {?>active<?php } ?>"><a href="#">Spécialisations</a></li>
-                        <li class="<?php if($site == "miage" && $page == "") {?>active<?php } ?>"><a href="#">Professionnalisation</a></li>
-                        <li class="<?php if($site == "miage" && $page == "") {?>active<?php } ?>"><a href="#">Débouchés</a></li>
-                        <li class="<?php if($site == "miage" && $page == "") {?>active<?php } ?>"><a href="#">Nous localiser</a></li>
-                        <li class="<?php if($site == "miage" && $page == "") {?>active<?php } ?>"><a href="#">Téléchargement</a></li>
+                        <li class="<?php if($site == "miage" && $page == "candidater") {?>active<?php } ?>"><a href="<?php echo $directory; ?>admin/miage/candidater">Candidater</a></li>
+                        <li class="<?php if($site == "miage" && $page == "contact") {?>active<?php } ?>"><a href="<?php echo $directory; ?>admin/miage/contact">Contact</a></li>
+                        <li class="<?php if($site == "miage" && $page == "pedagogie") {?>active<?php } ?>"><a href="<?php echo $directory; ?>admin/miage/pedagogie">Pédagogie</a></li>
+                        <li class="<?php if($site == "miage" && $page == "specialisations") {?>active<?php } ?>"><a href="<?php echo $directory; ?>admin/miage/specialisations">Spécialisations</a></li>
+                        <li class="<?php if($site == "miage" && $page == "professionnalisation") {?>active<?php } ?>"><a href="<?php echo $directory; ?>admin/miage/professionnalisation">Professionnalisation</a></li>
+                        <li class="<?php if($site == "miage" && $page == "debouches") {?>active<?php } ?>"><a href="<?php echo $directory; ?>admin/miage/debouches">Débouchés</a></li>
+                        <li class="<?php if($site == "miage" && $page == "telechargement") {?>active<?php } ?>"><a href="<?php echo $directory; ?>admin/miage/telechargement">Téléchargement</a></li>
                     </ul>
                 </div>
                 <div role="tabpanel" class="tab-pane fade <?php if($site == "2ibs") {?>active in<?php } ?>" id="2ibs" aria-labelledby="2ibs-tab">
                     <ul class="nav nav-sidebar">
-                        <li><a href="<?php echo $directory; ?>admin/2ibs/accueil">Accueil</a></li>
-                        <li><a href="#">Candidater</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">Pédagogie</a></li>
-                        <li><a href="#">Spécialisations</a></li>
-                        <li><a href="#">Professionnalisation</a></li>
-                        <li><a href="#">Débouchés</a></li>
-                        <li><a href="#">Nous localiser</a></li>
-                        <li><a href="#">Téléchargement</a></li>
+                        <li class="<?php if($site == "2ibs" && $page == "accueil") {?>active<?php } ?>"><a href="<?php echo $directory; ?>admin/2ibs/accueil">Accueil</a></li>
+                        <li class="<?php if($site == "2ibs" && $page == "candidater") {?>active<?php } ?>"><a href="<?php echo $directory; ?>admin/2ibs/candidater">Candidater</a></li>
+                        <li class="<?php if($site == "2ibs" && $page == "contact") {?>active<?php } ?>"><a href="<?php echo $directory; ?>admin/2ibs/contact">Contact</a></li>
+                        <li class="<?php if($site == "2ibs" && $page == "pedagogie") {?>active<?php } ?>"><a href="<?php echo $directory; ?>admin/2ibs/pedagogie">Pédagogie</a></li>
+                        <li class="<?php if($site == "2ibs" && $page == "specialisations") {?>active<?php } ?>"><a href="<?php echo $directory; ?>admin/2ibs/specialisations">Spécialisations</a></li>
+                        <li class="<?php if($site == "2ibs" && $page == "professionnalisation") {?>active<?php } ?>"><a href="<?php echo $directory; ?>admin/2ibs/professionnalisation">Professionnalisation</a></li>
+                        <li class="<?php if($site == "2ibs" && $page == "debouches") {?>active<?php } ?>"><a href="<?php echo $directory; ?>admin/2ibs/debouches">Débouchés</a></li>
+                        <li class="<?php if($site == "2ibs" && $page == "telechargement") {?>active<?php } ?>"><a href="<?php echo $directory; ?>admin/2ibs/telechargement">Téléchargement</a></li>
                     </ul>
                 </div>
             </div>
@@ -94,7 +94,7 @@
 
             <div class="content">
                 <?php if(empty($page)){ ?><p id="info">Sélectionnez un site et une page pour continuer ...</p><?php }else{ ?>
-                <?php include('content/'.$page.'.php'); } ?>
+                <?php include('form.php'); } ?>
             </div>
         </article>
     </div>

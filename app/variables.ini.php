@@ -29,6 +29,17 @@ ConstanteArray::$config['SITE_AVAILABLE'] = array(
     "2ibs"
 );
 
+ConstanteArray::$config['PAGE_AVAILABLE'] = array(
+    "accueil",
+    "candidater",
+    "contact",
+    "pedagogie",
+    "specialisations",
+    "professionnalisation",
+    "debouches",
+    "telechargement"
+);
+
 // Site ID
 ConstanteArray::$config['SITE_ID'] = array(
     "miage" => 1,
@@ -44,6 +55,5 @@ ConstanteArray::$config['PAGE_SITE_ID'] = array(
     "specialisations" => 5,
     "professionnalisation" => 6,
     "debouches" => 7,
-    "nous-localiser" => 8,
     "telechargement" => 9,
 );

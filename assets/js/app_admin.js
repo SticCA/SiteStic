@@ -1,44 +1,13 @@
-var num = 1;
+var num = $('textarea').length;
 
 $(document).ready(function() {
 
     $('button').bind('click', function(e){
         e.preventDefault();
-
         addBloc();
     });
 
 });
-
-function initTinyMce(){
-    tinymce.init({
-        selector: 'textarea',
-        height: 300,
-        theme: 'modern',
-        plugins: [
-            'advlist autolink lists link image charmap print preview hr anchor pagebreak',
-            'searchreplace wordcount visualblocks visualchars code fullscreen',
-            'insertdatetime media nonbreaking save table contextmenu directionality',
-            'emoticons template paste textcolor colorpicker textpattern imagetools'
-        ],
-        toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent',
-        toolbar2: 'link image | forecolor backcolor emoticons',
-        image_advtab: true,
-        templates: [
-            { title: 'Test template 1', content: 'Test 1' },
-            { title: 'Test template 2', content: 'Test 2' }
-        ],
-        image_list: [
-            {title: 'Logo UPJV', value: '../../assets/imgs/upjv.jpg'},
-            {title: 'Plan UPJV', value: '../../assets/imgs/plan.jpg'}
-        ],
-        //external_image_list_url : "myexternallist.js",
-        content_css: [
-            '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
-            '//www.tinymce.com/css/codepen.min.css'
-        ]
-    });
-}
 
 function addBloc(){
 
@@ -74,6 +43,7 @@ function addBloc(){
     var input = document.createElement("input");
     $(input).attr("name", titre);
     $(input).attr("class", "form-control titre");
+    $(input).attr("required", "");
 
     /**********************************************/
 
@@ -84,6 +54,7 @@ function addBloc(){
     // Textearea Tinymce
     var text = document.createElement("textarea");
     $(text).attr("name", txt);
+    $(text).attr("id", "textarea" + num.toString());
 
     /**********************************************/
 
@@ -95,7 +66,7 @@ function addBloc(){
     $(text).appendTo("#" + bloc);
     $(hr).appendTo("#" + bloc);
 
-    initTinyMce();
+    initTinyMce(num.toString());
 
     $('html, body').animate({
         scrollTop: $("#" + bloc).offset().top

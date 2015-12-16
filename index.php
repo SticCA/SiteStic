@@ -29,7 +29,6 @@ $app->config(array(
 
 // Base de donnée
 $app->ACCES_BASE = new BDD(HOST_BDD, LOGIN_BDD, PWD_BDD);
-//$tmp = $app->ACCES_BASE->InsertBDD("test", ["name"=>'toto',"pwd"=>123]);
 
 //////////////////////////////////////////////////////////////////////////
 
@@ -45,11 +44,15 @@ $app->get('/admin(/)(:site)(/)(:page)', function ($site = "", $page = "") use ($
 
     if(!empty($page)){
 
-        if(file_exists(TEMPLATE_FOLDER . '/admin/'. CONTENT_FOLDER . '/'. $page .'.php')){
+        if(in_array($page, ConstanteArray::$config['PAGE_AVAILABLE'])){
 
-            // @todo recup les data !!! dans content
+            $SITE_ID = ConstanteArray::$config['SITE_ID'][$site];
+            $PAGE_ID = ConstanteArray::$config['PAGE_SITE_ID'][$page];
 
-            $app->render('admin/index.php', array('content' => '', 'page' => $page , 'site' => $site));
+            // select des infos deja presentes
+            $contentData = $app->ACCES_BASE->SelectBDD('page_content', $SITE_ID, $PAGE_ID);
+
+            $app->render('admin/index.php', array('contentData' => $contentData, 'page' => $page , 'site' => $site));
         }else{
             $app->notFound();
         }
@@ -61,13 +64,39 @@ $app->get('/admin(/)(:site)(/)(:page)', function ($site = "", $page = "") use ($
 $app->post('/admin/traitement/:site/:page', function ($site, $page) use ($app) {
 
     $data = $app->request()->post();
-    $site_id = ConstanteArray::$config['SITE_ID'][$site];
-    $page_id = ConstanteArray::$config['PAGE_SITE_ID'][$page];
+    $data['SITE_ID'] = ConstanteArray::$config['SITE_ID'][$site];
+    $data['PAGE_ID'] = ConstanteArray::$config['PAGE_SITE_ID'][$page];
 
     // delete des infos deja presentes
-    $app->ACCES_BASE->DeleteBDD('page_content', $site_id, $page_id);
+    $app->ACCES_BASE->DeleteBDD('page_content', $data['SITE_ID'], $data['PAGE_ID']);
 
-    print_r($data);
+    if(isset($data['titre']) && isset($data['text'])) {
+        $dataBloc['titre'] = $data['titre'];
+        $dataBloc['text'] = $data['text'];
+        unset($data['titre']);
+        unset($data['text']);
+
+        // enregistrement des blocs
+        for($i = 0; $i < sizeof($dataBloc['titre']); $i++){
+
+            $params = array(
+                'SITE_ID' => $data['SITE_ID'],
+                'PAGE_ID' => $data['PAGE_ID'],
+                'ZONE_TITRE_BLOC' => $dataBloc['titre'][$i],
+                'ZONE_TEXT_BLOC' => $dataBloc['text'][$i]
+            );
+
+            $app->ACCES_BASE->InsertBDD('page_content', $params);
+        }
+
+    }
+
+    // enregistrement des 3 bloc couleur
+    if($page == "accueil"){
+        $app->ACCES_BASE->InsertBDD('page_content', $data);
+    }
+
+    $app->redirect("../../../admin/$site/$page");
 
 });
 
@@ -78,7 +107,13 @@ $app->get('/(:site)', function ($site = "miage") use ($app) {
 
     if(in_array($site, ConstanteArray::$config['SITE_AVAILABLE'])){
 
-        $app->render('accueil.php', array('site' => $site));
+        $SITE_ID = ConstanteArray::$config['SITE_ID'][$site];
+        $PAGE_ID = ConstanteArray::$config['PAGE_SITE_ID']["accueil"];
+
+        // select des infos deja presentes
+        $contentData = $app->ACCES_BASE->SelectBDD('page_content', $SITE_ID, $PAGE_ID);
+
+        $app->render('accueil.php', array('site' => $site, 'contentData' => $contentData));
 
     }else{
         $app->notFound();

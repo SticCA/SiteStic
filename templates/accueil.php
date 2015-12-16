@@ -72,36 +72,18 @@
 
                 <div class="content">
                     <div class="row">
+                        <?php for($i = 1; $i < 4; $i++){ ?>
                         <div class="col-md-4">
                             <div class="row box">
                                 <div class="col-md-4">
-                                    <div id="circle" style="border: 8px solid #1F9ADC;"><p>BAC +5</p></div>
+                                    <div id="circle" style="border: 8px solid <?php echo $contentData['COLOR']['color'.$i] ?>"><p><?php echo $contentData['COLOR']['titre'.$i] ?></p></div>
                                 </div>
                                 <div class="col-md-8">
-                                    <p>Formation universitaire française de niveau Bac +5</p>
+                                    <p><?php echo $contentData['COLOR']['text'.$i] ?></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="row box">
-                                <div class="col-md-4">
-                                    <div id="circle" style="border: 8px solid #E8902C;"><p>x2</p></div>
-                                </div>
-                                <div class="col-md-8">
-                                    <p>Double compétence en informatique et en gestion</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="row box">
-                                <div class="col-md-4">
-                                    <div id="circle" style="border: 8px solid #4CC65E;"><p>20</p></div>
-                                </div>
-                                <div class="col-md-8">
-                                    <p>20 semaines de présence en entreprise par an</p>
-                                </div>
-                            </div>
-                        </div>
+                        <?php } ?>
                     </div>
 
                     <div class="row">
@@ -138,39 +120,29 @@
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-12 toggle" data-toggle="toggle2">
-                            <header>
-                                <i class="flaticon-worldgrid"></i>
-                                <span class="titre-toggle">Réseaux MIAGE en France</span>
-                                <span class="arrow-toggle"><i class="flaticon-arrow483"></i></span>
-                            </header>
+                    <?php if(isset($contentData['BLOC'])){
+                        foreach ($contentData['BLOC'] as $key => $value) { ?>
 
-                            <article class="row" id="toggle2">
-                                <div class="col-md-6">
-                                    <img class="img-reponsive" src="assets/imgs/e-miage.png" alt="e-miage">
+
+                            <div class="row">
+                                <div class="col-md-12 toggle" data-toggle="toggle2">
+                                    <header>
+                                        <i class="flaticon-worldgrid"></i>
+                                        <span class="titre-toggle"><?php echo $value['titre'] ?></span>
+                                        <span class="arrow-toggle"><i class="flaticon-arrow483"></i></span>
+                                    </header>
+
+                                    <article class="row" id="toggle2">
+                                        <div class="col-md-12">
+                                            <?php echo $value['text'] ?>
+                                        </div>
+                                    </article>
                                 </div>
-                                <div class="col-md-6">
-                                    <ul>
-                                        <li>Aix-Marseille</li>
-                                        <li>Amiens</li>
-                                        <li>Bordeaux</li>
-                                        <li>Grenoble</li>
-                                        <li>Lille</li>
-                                        <li>Lyon</li>
-                                        <li>Rennes</li>
-                                        <li>Toulouse</li>
-                                        <li>Mulhouse</li>
-                                        <li>Nancy</li>
-                                        <li>Nantes</li>
-                                        <li>Nice</li>
-                                        <li>Orléans</li>
-                                        <li>Paris et Ile-de-France</li>
-                                    </ul>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
+                            </div>
+
+                    <?php }
+                    } ?>
+
                 </div>
             </article>
         </div>
