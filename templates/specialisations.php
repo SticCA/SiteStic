@@ -26,10 +26,10 @@
                     <a class="navbar-brand" href="../<?php echo $site; ?>">
                         <?php if($site == "miage"){ ?>
                             <img src="../assets/imgs/miage.png" width="150" alt="Miage"/>
-                            <p style="font-size: 11px">Méthodes Informatiques Appliquées<br> à la Gestion des Entreprise</p>
+                            <p style="font-size: 11px; margin-left: -7px;">Méthodes Informatiques Appliquées<br> à la Gestion des Entreprise</p>
                         <?php }elseif($site == "2ibs"){ ?>
                             <h1 id="titre_2IBS">2IBS</h1>
-                            <p style="font-size: 11px">Informatique et Instrumentation pour<br> la Biologie et la Santé</p>
+                            <p style="font-size: 11px; margin-left: -7px;">Informatique et Instrumentation pour<br> la Biologie et la Santé</p>
                         <?php } ?>
                     </a>
                 </div>
@@ -67,17 +67,29 @@
                 </h1>
 
                 <div class="content">
-                    <div class="row">
-                        <div class="col-md-12 toggle">
-                            <header>
-                                <i class="flaticon-worldgrid"></i>
-                            </header>
 
-                            <article>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad deleniti, doloremque eos ex illum incidunt laudantium minus molestiae nam omnis placeat quos tempora vel voluptas. Atque doloremque nostrum veritatis?
-                            </article>
-                        </div>
-                    </div>
+                    <?php if(isset($contentData['BLOC'])){
+                        foreach ($contentData['BLOC'] as $key => $value) { ?>
+
+
+                            <div class="row">
+                                <div class="col-md-12 toggle" data-toggle="toggle<?php echo $key ?>">
+                                    <header>
+                                        <i class="flaticon-mark1"></i>
+                                        <span class="titre-toggle"><?php echo $value['titre'] ?></span>
+                                        <span class="arrow-toggle"><i class="flaticon-arrow483"></i></span>
+                                    </header>
+
+                                    <article class="row" id="toggle<?php echo $key ?>">
+                                        <div class="col-md-12">
+                                            <?php echo $value['text'] ?>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+
+                        <?php }
+                    } ?>
 
                 </div>
             </article>
@@ -85,7 +97,7 @@
     </section>
 </body>
 
-    <script type="text/javascript" src="assets/js/jquery.js"></script>
-    <script type="text/javascript" src="assets/css/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="../assets/js/jquery.js"></script>
+    <script type="text/javascript" src="../assets/css/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../assets/js/app.js"></script>
 </html>

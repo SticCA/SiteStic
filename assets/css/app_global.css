@@ -1,3 +1,18 @@
+@font-face {
+    font-family: 'sansationregular';
+    src: url('../fonts/Sansation-Regular-webfont.eot');
+    src: url('../fonts/Sansation-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Sansation-Regular-webfont.woff') format('woff'),
+    url('../fonts/Sansation-Regular-webfont.ttf') format('truetype'),
+    url('../fonts/Sansation-Regular-webfont.svg#sansationregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+    font-family: sansationregular, Tahoma, Verdana, Segoe, sans-serif;
+}
+
 #content-img{
     margin-top: 55%;
 }
@@ -88,14 +103,26 @@
 }
 
 .toggle header span.titre-toggle{
+    position: relative;
+    top:-5px;
     margin-left: 30px;
     color: white;
     font-size: 30px;
 }
 
-.flaticon-worldgrid:before, .flaticon-arrow483:before{
+.flaticon-worldgrid:before, .flaticon-arrow483:before,
+header .flaticon-graduation-cap2:before,
+header .flaticon-mark1:before,
+header .flaticon-briefcase69:before,
+header .flaticon-suitcase58:before,
+header .flaticon-downloading:before {
     font-size: 40px;
 }
-.flaticon-worldgrid, .flaticon-arrow483{
+.flaticon-worldgrid, .flaticon-arrow483,
+header .flaticon-graduation-cap2,
+header .flaticon-mark1,
+header .flaticon-briefcase69,
+header .flaticon-suitcase58,
+header .flaticon-downloading {
     color:white;
 }

@@ -26,10 +26,10 @@
                     <a class="navbar-brand" href="../<?php echo $site; ?>">
                         <?php if($site == "miage"){ ?>
                             <img src="../assets/imgs/miage.png" width="150" alt="Miage"/>
-                            <p style="font-size: 11px">Méthodes Informatiques Appliquées<br> à la Gestion des Entreprise</p>
+                            <p style="font-size: 11px; margin-left: -7px;">Méthodes Informatiques Appliquées<br> à la Gestion des Entreprise</p>
                         <?php }elseif($site == "2ibs"){ ?>
                             <h1 id="titre_2IBS">2IBS</h1>
-                            <p style="font-size: 11px">Informatique et Instrumentation pour<br> la Biologie et la Santé</p>
+                            <p style="font-size: 11px; margin-left: -7px;">Informatique et Instrumentation pour<br> la Biologie et la Santé</p>
                         <?php } ?>
                     </a>
                 </div>
@@ -67,17 +67,8 @@
                 </h1>
 
                 <div class="content">
-                    <div class="row">
-                        <div class="col-md-12 toggle">
-                            <header>
-                                <i class="flaticon-worldgrid"></i>
-                            </header>
 
-                            <article>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad deleniti, doloremque eos ex illum incidunt laudantium minus molestiae nam omnis placeat quos tempora vel voluptas. Atque doloremque nostrum veritatis?
-                            </article>
-                        </div>
-                    </div>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto assumenda dolorum eos, in iusto, maiores optio quaerat quas quo ratione sed sit suscipit, tenetur unde vitae! Assumenda fugiat qui saepe!
 
                 </div>
             </article>
@@ -85,7 +76,7 @@
     </section>
 </body>
 
-    <script type="text/javascript" src="assets/js/jquery.js"></script>
-    <script type="text/javascript" src="assets/css/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="../assets/js/jquery.js"></script>
+    <script type="text/javascript" src="../assets/css/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../assets/js/app.js"></script>
 </html>

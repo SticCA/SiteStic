@@ -46,7 +46,7 @@
             <script type="text/javascript">initTinyMce(<?php echo $key; ?>);</script>
         <?php } } ?>
     </div>
-    <input type="submit" class="btn btn-info" value="Enregistrer">
+    <input type="submit" class="btn btn-info" id="valider" value="Enregistrer">
 
     <button class="btn btn-warning" id="addBloc">Ajouter un bloc texte</button>
 </form>

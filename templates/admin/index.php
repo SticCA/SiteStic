@@ -30,8 +30,7 @@
                     { title: 'Test template 2', content: 'Test 2' }
                 ],
                 image_list: [
-                    {title: 'Logo UPJV', value: '../../assets/imgs/upjv.jpg'},
-                    {title: 'Plan UPJV', value: '../../assets/imgs/plan.jpg'}
+                    {title: 'Logo UPJV', value: '../../assets/imgs/upjv.jpg'}
                 ],
                 //external_image_list_url : "myexternallist.js",
                 content_css: [
@@ -90,7 +89,7 @@
 
         </article>
         <article class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h1 class="page-header">Administration <?php if($site) echo ucfirst($page) . " - " . strtoupper($site) ?></h1>
+            <h1 class="page-header">Administration <?php if($site) echo strtoupper($site)  . " - " . ucfirst($page) ?></h1>
 
             <div class="content">
                 <?php if(empty($page)){ ?><p id="info">Sélectionnez un site et une page pour continuer ...</p><?php }else{ ?>

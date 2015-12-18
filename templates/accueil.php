@@ -26,10 +26,10 @@
                     <a class="navbar-brand" href="./<?php echo $site; ?>">
                         <?php if($site == "miage"){ ?>
                             <img src="assets/imgs/miage.png" width="150" alt="Miage"/>
-                            <p style="font-size: 11px">Méthodes Informatiques Appliquées<br> à la Gestion des Entreprise</p>
+                            <p style="font-size: 11px; margin-left: -7px;">Méthodes Informatiques Appliquées<br> à la Gestion des Entreprise</p>
                         <?php }elseif($site == "2ibs"){ ?>
                             <h1 id="titre_2IBS">2IBS</h1>
-                            <p style="font-size: 11px">Informatique et Instrumentation pour<br> la Biologie et la Santé</p>
+                            <p style="font-size: 11px; margin-left: -7px;">Informatique et Instrumentation pour<br> la Biologie et la Santé</p>
                         <?php } ?>
                     </a>
                 </div>
@@ -87,14 +87,14 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-12 toggle" data-toggle="toggle1">
+                        <div class="col-md-12 toggle" data-toggle="toggle">
                             <header>
                                 <i class="flaticon-worldgrid"></i>
                                 <span class="titre-toggle">Réseaux MIAGE en France</span>
                                 <span class="arrow-toggle"><i class="flaticon-arrow483"></i></span>
                             </header>
 
-                            <article class="row" id="toggle1">
+                            <article class="row" id="toggle">
                                 <div class="col-md-6">
                                     <img class="img-reponsive" src="assets/imgs/e-miage.png" alt="e-miage">
                                 </div>
@@ -125,14 +125,14 @@
 
 
                             <div class="row">
-                                <div class="col-md-12 toggle" data-toggle="toggle2">
+                                <div class="col-md-12 toggle" data-toggle="toggle<?php echo $key ?>">
                                     <header>
                                         <i class="flaticon-worldgrid"></i>
                                         <span class="titre-toggle"><?php echo $value['titre'] ?></span>
                                         <span class="arrow-toggle"><i class="flaticon-arrow483"></i></span>
                                     </header>
 
-                                    <article class="row" id="toggle2">
+                                    <article class="row" id="toggle<?php echo $key ?>">
                                         <div class="col-md-12">
                                             <?php echo $value['text'] ?>
                                         </div>

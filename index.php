@@ -125,9 +125,20 @@ $app->get('/(:site)', function ($site = "miage") use ($app) {
 $app->get('/(:site)(/)(:page)', function ($site = "miage", $page) use ($app) {
 
     if(in_array($site, ConstanteArray::$config['SITE_AVAILABLE'])
-        && file_exists(TEMPLATE_FOLDER . "/" . $page . ".php")){
+        && file_exists(TEMPLATE_FOLDER . "/" . $page . ".php")) {
 
-        $app->render($page.'.php', array('site' => $site));
+        if ($page != "nous-localiser") {
+
+            $SITE_ID = ConstanteArray::$config['SITE_ID'][$site];
+            $PAGE_ID = ConstanteArray::$config['PAGE_SITE_ID'][$page];
+
+            // select des infos deja presentes
+            $contentData = $app->ACCES_BASE->SelectBDD('page_content', $SITE_ID, $PAGE_ID);
+        }else{
+            $contentData = array();
+        }
+
+        $app->render($page.'.php', array('site' => $site, 'contentData' => $contentData));
 
     }else{
         $app->notFound();

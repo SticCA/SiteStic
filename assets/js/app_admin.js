@@ -1,6 +1,11 @@
 var num = $('textarea').length;
+var colorTest = $('#color1').length;
 
 $(document).ready(function() {
+
+    if(num == 0 && colorTest == 0){
+        $('#valider').prop("disabled", true);
+    }
 
     $('button').bind('click', function(e){
         e.preventDefault();
@@ -10,6 +15,8 @@ $(document).ready(function() {
 });
 
 function addBloc(){
+
+    $('#valider').prop("disabled", false);
 
     num = num + 1;
     var bloc = "bloc" + num.toString();
@@ -78,5 +85,9 @@ function delBloc(bloc){
     if(confirm("Etes-vous sûr de vouloir supprimer ce bloc ?")) {
         var id = "#" + bloc;
         $(id).remove();
+        num = num - 1;
+        if(num == 0 && colorTest == 0){
+            $('#valider').prop("disabled", true);
+        }
     }
 }
