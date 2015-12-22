@@ -6,7 +6,6 @@
 
 // Source Html/php dossier
 const TEMPLATE_FOLDER = "templates";
-const CONTENT_FOLDER = "content";
 
 // Information BDD
 const HOST_BDD = "mysql:dbname=site-stic;host=127.0.0.1";

@@ -12,13 +12,13 @@ include('app/variables.ini.php');
 $app = new \Slim\Slim();
 
 // Authentification HTTP pour l'espace Admin
-$app->add(new \Slim\Middleware\HttpBasicAuthentication([
+$app->add(new \Slim\Middleware\HttpBasicAuthentication(array(
     "path" => "/admin",
     "realm" => "Connexion Administration Site STIC",
-    "secure" => true,
+    "environment" => "REDIRECT_HTTP_AUTHORIZATION",
     "relaxed" => ConstanteArray::$config['DOMAINE_OK'],
     "users" => ConstanteArray::$config['COMPTE_ADMIN']
-]));
+)));
 
 // config du mode debug et du dossier
 // contenant les templates
@@ -103,7 +103,7 @@ $app->post('/admin/traitement/:site/:page', function ($site, $page) use ($app) {
 //////////////////////////////////////////////////////////////////////////
 
 // Accueil miage / 2ibs
-$app->get('/(:site)', function ($site = "miage") use ($app) {
+$app->get('/:site', function ($site) use ($app) {
 
     if(in_array($site, ConstanteArray::$config['SITE_AVAILABLE'])){
 
@@ -122,7 +122,7 @@ $app->get('/(:site)', function ($site = "miage") use ($app) {
 
 
 // Gestion Page interne au site
-$app->get('/(:site)(/)(:page)', function ($site = "miage", $page) use ($app) {
+$app->get('/:site(/)(:page)', function ($site, $page) use ($app) {
 
     if(in_array($site, ConstanteArray::$config['SITE_AVAILABLE'])
         && file_exists(TEMPLATE_FOLDER . "/" . $page . ".php")) {
