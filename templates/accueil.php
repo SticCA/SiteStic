@@ -86,6 +86,7 @@
                         <?php } ?>
                     </div>
 
+                    <?php if($site == "miage"){ ?>
                     <div class="row">
                         <div class="col-md-12 toggle" data-toggle="toggle">
                             <header>
@@ -119,7 +120,7 @@
                             </article>
                         </div>
                     </div>
-
+                    <?php } ?>
                     <?php if(isset($contentData['BLOC'])){
                         foreach ($contentData['BLOC'] as $key => $value) { ?>
 

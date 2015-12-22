@@ -68,7 +68,47 @@
 
                 <div class="content">
 
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto assumenda dolorum eos, in iusto, maiores optio quaerat quas quo ratione sed sit suscipit, tenetur unde vitae! Assumenda fugiat qui saepe!
+                    <div class="row">
+                        <div class="col-md-12 toggle" data-toggle="toggle1">
+                            <header>
+                                <i class="flaticon-pin66"></i>
+                                <span class="titre-toggle">Contact</span>
+                                <span class="arrow-toggle"><i class="flaticon-arrow483"></i></span>
+                            </header>
+
+                            <article class="row" id="toggle1">
+                                <div class="col-md-12">
+                                    <p>Accueil téléphonique : <a href="tel:0322828802">03-22-82-88-02</a></p>
+                                    <p>Un guichet mail unique et nous vous redirigeons vers le bon interlocuteur : <a href="mailto:miage@u-picardie.fr">miage@u-picardie.fr</a></p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12 toggle" data-toggle="toggle2">
+                            <header>
+                                <i class="flaticon-pin66"></i>
+                                <span class="titre-toggle">Localisation</span>
+                                <span class="arrow-toggle"><i class="flaticon-arrow483"></i></span>
+                            </header>
+
+                            <article class="row" id="toggle2">
+                                <div class="col-md-6">
+                                    <img class="img-reponsive" src="../assets/imgs/plan.jpg" alt="e-miage">
+                                </div>
+                                <div class="col-md-6">
+
+                                    <p style="font-size: 20px; margin-top: 25%; text-align: center;">Master MIAGE<br>
+
+                                    UFR des Sciences<br>
+                                    Bâtiment F<br>
+                                    33, rue Saint Leu<br>
+                                    80039 Amiens Cedex 1</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
 
                 </div>
             </article>

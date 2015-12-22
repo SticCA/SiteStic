@@ -28,7 +28,7 @@
 }
 
 #sidebar-menu li a{
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .box{
@@ -115,7 +115,8 @@ header .flaticon-graduation-cap2:before,
 header .flaticon-mark1:before,
 header .flaticon-briefcase69:before,
 header .flaticon-suitcase58:before,
-header .flaticon-downloading:before {
+header .flaticon-downloading:before,
+header .flaticon-pin66:before {
     font-size: 40px;
 }
 .flaticon-worldgrid, .flaticon-arrow483,
@@ -123,6 +124,7 @@ header .flaticon-graduation-cap2,
 header .flaticon-mark1,
 header .flaticon-briefcase69,
 header .flaticon-suitcase58,
-header .flaticon-downloading {
+header .flaticon-downloading,
+header .flaticon-pin66 {
     color:white;
 }
