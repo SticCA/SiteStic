@@ -20,6 +20,7 @@ ConstanteArray::$config['DOMAINE_OK'] = array(
     "localhost",
     "local.dev",
     "192.168.0.30",
+    "mastersticamiens.fr"
 );
 
 // Site Disponible
