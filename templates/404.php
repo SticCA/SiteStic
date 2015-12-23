@@ -34,7 +34,7 @@ for($i = 1; $i < sizeof($chemin) - 1; $i++){
 <body class="row">
     <section class="col-md-12">
         <p id="titre">Erreur 404 <br> Page Introuvable</p>
-        <p>Vous etes perdus ? <br> Retrouvez votre chemin vers l'un de ces deux site.</p>
+        <p>Vous etes perdus ? <br> Retrouvez votre chemin vers l'un de ces deux sites</p>
         <ul>
             <li><a href="<?php echo $directory;?>miage" class="btn btn-info">Site du Master MIAGE</a></li>
             <li><a href="<?php echo $directory;?>2ibs" class="btn btn-success">Site du Master 2IBS</a></li>

@@ -79,7 +79,7 @@
                             <article class="row" id="toggle1">
                                 <div class="col-md-12">
                                     <p>Accueil téléphonique : <a href="tel:0322828802">03-22-82-88-02</a></p>
-                                    <p>Un guichet mail unique et nous vous redirigeons vers le bon interlocuteur : <a href="mailto:miage@u-picardie.fr">miage@u-picardie.fr</a></p>
+                                    <p>Un guichet mail unique et nous vous redirigeons vers le bon interlocuteur : <a href="mailto:<?php echo $site; ?>@u-picardie.fr"><?php echo $site; ?>@u-picardie.fr</a></p>
                                 </div>
                             </article>
                         </div>
@@ -99,7 +99,7 @@
                                 </div>
                                 <div class="col-md-6">
 
-                                    <p style="font-size: 20px; margin-top: 25%; text-align: center;">Master MIAGE<br>
+                                    <p style="font-size: 20px; margin-top: 25%; text-align: center;">Master <?php echo strtoupper($site); ?><br>
 
                                     UFR des Sciences<br>
                                     Bâtiment F<br>
