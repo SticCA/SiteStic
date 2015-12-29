@@ -19,4 +19,9 @@
         top:-10px;
         font-size: 14px;
     }
+
+    p img {
+        width: 80%;
+        height: auto;
+    }
 }

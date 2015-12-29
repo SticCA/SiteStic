@@ -79,11 +79,18 @@ $app->post('/admin/traitement/:site/:page', function ($site, $page) use ($app) {
         // enregistrement des blocs
         for($i = 0; $i < sizeof($dataBloc['titre']); $i++){
 
+            if(!strpos($dataBloc['text'][$i], "data")){
+                $text = str_replace("<img ", "<img class=\"img-responsive\" ", $dataBloc['text'][$i]);
+                $text = str_replace("../../assets", "../assets", $text);
+            }else{
+                $text = $dataBloc['text'][$i];
+            }
+
             $params = array(
                 'SITE_ID' => $data['SITE_ID'],
                 'PAGE_ID' => $data['PAGE_ID'],
                 'ZONE_TITRE_BLOC' => $dataBloc['titre'][$i],
-                'ZONE_TEXT_BLOC' => $dataBloc['text'][$i]
+                'ZONE_TEXT_BLOC' => $text
             );
 
             $app->ACCES_BASE->InsertBDD('page_content', $params);
