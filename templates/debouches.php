@@ -68,6 +68,68 @@
 
                 <div class="content">
 
+                    <div class="row">
+                        <div class="col-md-12 toggle" data-toggle="toggleTem">
+                            <header>
+                                <img src="../assets/imgs/bulle.png" width="40px" style="margin: 3px 3px 5px 15px;">
+                                <span class="titre-toggle" style="top: 5px;">Témoignages</span>
+                                <span class="arrow-toggle"><i class="flaticon-arrow483"></i></span>
+                            </header>
+
+                            <article class="row" id="toggleTem">
+                                <div class="col-md-12">
+                                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+                                        <!-- Wrapper for slides -->
+                                        <div class="carousel-inner" role="listbox">
+                                            <div class="item active">
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur deleniti hic mollitia non similique! A animi cupiditate dolorum ex expedita, fugiat harum ipsum laboriosam numquam rem, repellat sed sunt tenetur!
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur deleniti hic mollitia non similique! A animi cupiditate dolorum ex expedita, fugiat harum ipsum laboriosam numquam rem, repellat sed sunt tenetur!
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur deleniti hic mollitia non similique! A animi cupiditate dolorum ex expedita, fugiat harum ipsum laboriosam numquam rem, repellat sed sunt tenetur!
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur deleniti hic mollitia non similique! A animi cupiditate dolorum ex expedita, fugiat harum ipsum laboriosam numquam rem, repellat sed sunt tenetur!
+                                                <div class="carousel-caption">
+                                                    ...
+                                                </div>
+                                            </div>
+                                            <div class="item">
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur deleniti hic mollitia non similique! A animi cupiditate dolorum ex expedita, fugiat harum ipsum laboriosam numquam rem, repellat sed sunt tenetur!
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur deleniti hic mollitia non similique! A animi cupiditate dolorum ex expedita, fugiat harum ipsum laboriosam numquam rem, repellat sed sunt tenetur!
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur deleniti hic mollitia non similique! A animi cupiditate dolorum ex expedita, fugiat harum ipsum laboriosam numquam rem, repellat sed sunt tenetur!
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur deleniti hic mollitia non similique! A animi cupiditate dolorum ex expedita, fugiat harum ipsum laboriosam numquam rem, repellat sed sunt tenetur!
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur deleniti hic mollitia non similique! A animi cupiditate dolorum ex expedita, fugiat harum ipsum laboriosam numquam rem, repellat sed sunt tenetur!
+                                                <div class="carousel-caption">
+                                                    ...
+                                                </div>
+                                            </div>
+
+                                            <div class="item">
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur deleniti hic mollitia non similique! A animi cupiditate dolorum ex expedita, fugiat harum ipsum laboriosam numquam rem, repellat sed sunt tenetur!
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur deleniti hic mollitia non similique! A animi cupiditate dolorum ex expedita, fugiat harum ipsum laboriosam numquam rem, repellat sed sunt tenetur!
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur deleniti hic mollitia non similique! A animi cupiditate dolorum ex expedita, fugiat harum ipsum laboriosam numquam rem, repellat sed sunt tenetur!
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur deleniti hic mollitia non similique! A animi cupiditate dolorum ex expedita, fugiat harum ipsum laboriosam numquam rem, repellat sed sunt tenetur!
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur deleniti hic mollitia non similique! A animi cupiditate dolorum ex expedita, fugiat harum ipsum laboriosam numquam rem, repellat sed sunt tenetur!
+                                                <div class="carousel-caption">
+                                                    ...
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Controls -->
+                                        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+
                     <?php if(isset($contentData['BLOC'])){
                         foreach ($contentData['BLOC'] as $key => $value) { ?>
 

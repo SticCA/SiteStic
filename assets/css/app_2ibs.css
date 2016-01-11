@@ -164,3 +164,13 @@
 .toggle article {
     border: 1px solid #378F47;
 }
+
+.glyphicon-chevron-left:before,
+.glyphicon-chevron-right:before{
+    color: #378F47;
+}
+
+.glyphicon-chevron-left:before,
+.glyphicon-chevron-right:before{
+    color: #378F47;
+}

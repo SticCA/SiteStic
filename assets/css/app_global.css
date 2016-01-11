@@ -156,3 +156,17 @@ header .flaticon-pin66 {
 .main .page-header {
     border-bottom: 2px solid white;
 }
+
+.carousel-control {
+    left: -35px;
+    width: 5%;
+}
+
+.carousel-control.left{
+    background-image: none;
+}
+
+.carousel-control.right {
+    right: -35px;
+    background-image: none;
+}

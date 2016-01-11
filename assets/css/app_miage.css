@@ -152,3 +152,8 @@
 .toggle article {
     border: 1px solid #1F9ADC;
 }
+
+.glyphicon-chevron-left:before,
+.glyphicon-chevron-right:before{
+    color: #1F9ADC;
+}
