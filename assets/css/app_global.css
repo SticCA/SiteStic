@@ -13,6 +13,23 @@
     font-family: sansationregular, Tahoma, Verdana, Segoe, sans-serif;
 }
 
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    padding-top: 100px;
+    padding-bottom: 20px;
+    background-color: #EFEFEF;
+}
+
+.img-align{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
 #content-img{
     margin-top: 55%;
 }
@@ -70,12 +87,12 @@
 
 .toggle article{
     padding: 10px;
-    border: 1px solid black;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     height: auto;
     margin-left: 0px;
     margin-right: 0px;
+    background-color: white;
 }
 
 .toggle ul{
@@ -129,4 +146,13 @@ header .flaticon-downloading,
 header .flaticon-shopping159,
 header .flaticon-pin66 {
     color:white;
+}
+
+#graph1, #graph2{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main .page-header {
+    border-bottom: 2px solid white;
 }

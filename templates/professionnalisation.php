@@ -68,10 +68,29 @@
 
                 <div class="content">
 
+                    <div class="row">
+                        <div class="col-md-12 toggle" data-toggle="toggleStat">
+                            <header>
+                                <img src="../assets/imgs/pie-chart.png" width="40px" style="margin: 3px 3px 5px 15px;">
+                                <span class="titre-toggle" style="top: 5px;">Statistiques</span>
+                                <span class="arrow-toggle"><i class="flaticon-arrow483"></i></span>
+                            </header>
+
+                            <article class="row" id="toggleStat">
+                                <div class="col-md-6">
+                                    <h3>Répartition des alternants par secteur :</h3>
+                                    <div id="graph1"></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h3>Répartition des alternants par region :</h3>
+                                    <div id="graph2"></div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
                     <?php if(isset($contentData['BLOC'])){
                         foreach ($contentData['BLOC'] as $key => $value) { ?>
-
-
                             <div class="row">
                                 <div class="col-md-12 toggle" data-toggle="toggle<?php echo $key ?>">
                                     <header>
@@ -87,7 +106,6 @@
                                     </article>
                                 </div>
                             </div>
-
                         <?php }
                     } ?>
 
@@ -98,6 +116,52 @@
 </body>
 
     <script type="text/javascript" src="../assets/js/jquery.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js"></script>
+    <script src="../assets/js/morris/morris.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.min.js"></script>
     <script type="text/javascript" src="../assets/css/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../assets/js/app.js"></script>
+
+    <script type="text/javascript">
+        Morris.Donut({
+            element: 'graph1',
+            data: [
+                <?php for($i=5; $i < 10; $i++) {?>
+                {value: <?php echo $contentData['STAT'][$i][2]; ?>, label: '<?php echo $contentData['STAT'][$i][0]; ?>'}<?php if($i != 3) echo ","; ?>
+                <?php } ?>
+            ],
+            backgroundColor: '#ccc',
+            <?php if($site == "2ibs") {?>
+            labelColor: '#060',
+            colors: [
+                '#0BA462',
+                '#39B580',
+                '#67C69D',
+                '#95D7BB'
+            ],
+            <?php } ?>
+            formatter: function (x) { return x + "%"}
+        });
+
+        Morris.Donut({
+            element: 'graph2',
+            data: [
+                <?php for($i=0; $i < 4; $i++) {?>
+                {value: <?php echo $contentData['STAT'][$i][2]; ?>, label: '<?php echo $contentData['STAT'][$i][0]; ?>'}<?php if($i != 3) echo ","; ?>
+                <?php } ?>
+            ],
+            backgroundColor: '#ccc',
+            <?php if($site == "2ibs") {?>
+            labelColor: '#060',
+            colors: [
+                '#0BA462',
+                '#39B580',
+                '#67C69D',
+                '#95D7BB'
+            ],
+            <?php } ?>
+            formatter: function (x) { return x + "%"}
+        });
+    </script>
+
 </html>

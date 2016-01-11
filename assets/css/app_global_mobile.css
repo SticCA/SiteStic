@@ -17,11 +17,16 @@
     .toggle header span.titre-toggle{
         position: relative;
         top:-10px;
-        font-size: 14px;
+        font-size: 16px;
     }
 
     p img {
         width: 80%;
         height: auto;
+    }
+
+    #graph1, #graph2{
+        margin-left: auto;
+        margin-right: auto;
     }
 }

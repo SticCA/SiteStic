@@ -4,6 +4,7 @@
 require 'vendor/autoload.php';
 require 'app/BDD.php';
 require 'app/ConstanteArray.php';
+require 'app/PHPExcel/Classes/PHPExcel.php';
 
 // fichier de variable d'environnement
 include('app/variables.ini.php');
@@ -141,6 +142,35 @@ $app->get('/:site(/)(:page)', function ($site, $page) use ($app) {
 
             // select des infos deja presentes
             $contentData = $app->ACCES_BASE->SelectBDD('page_content', $SITE_ID, $PAGE_ID);
+
+            if($page == "professionnalisation") {
+
+                $contentData['STAT'] = array();
+                $num = 1;
+                $ligne = 0;
+
+                // Chargement du fichier Excel
+                $objPHPExcel = PHPExcel_IOFactory::load("Statistiques_Site_MIAGE.xlsx");
+
+                /* récupération de la 5eme feuille du fichier Excel */
+                $sheet = $objPHPExcel->getSheet(4);
+
+                // On boucle sur les lignes
+                foreach ($sheet->getRowIterator() as $row) {
+
+                    // On boucle sur les cellule de la ligne
+                    foreach ($row->getCellIterator() as $cell) {
+                        if(strpos($cell->getValue(), ".")) {
+                            $contentData['STAT'][$ligne][] = ($cell->getValue() * 100);
+                        }else{
+                            $contentData['STAT'][$ligne][] = $cell->getValue();
+                        }
+                    }
+                    $ligne++;
+                }
+                //print_r($contentData['STAT']); die;
+            }
+
         }else{
             $contentData = array();
         }
