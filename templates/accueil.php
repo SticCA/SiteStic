@@ -101,8 +101,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <ul>
+                                        <li style="color: #1F9ADC; font-weight: bold;">Amiens</li>
                                         <li>Aix-Marseille</li>
-                                        <li>Amiens</li>
                                         <li>Bordeaux</li>
                                         <li>Grenoble</li>
                                         <li>Lille</li>
@@ -113,8 +113,8 @@
                                         <li>Nancy</li>
                                         <li>Nantes</li>
                                         <li>Nice</li>
+                                        <li>Paris et Ile-de-France <br> (7 universités)</li>
                                         <li>Orléans</li>
-                                        <li>Paris et Ile-de-France (7 universités)</li>
                                     </ul>
                                 </div>
                             </article>

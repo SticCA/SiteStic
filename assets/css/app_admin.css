@@ -100,6 +100,13 @@ body {
 .delBloc{
     float: right;
     position: relative;
-    top: -10px;
+    top: 0px;
+    right: 5px;
     cursor: pointer;
+}
+
+.blocs{
+    border-radius: 5px;
+    border: 1px solid #eee;
+    padding: 10px;
 }

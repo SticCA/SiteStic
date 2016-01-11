@@ -36,7 +36,7 @@
     <div id="content">
         <?php if(isset($contentData['BLOC'])){
             foreach ($contentData['BLOC'] as $key => $value) { ?>
-            <div class="form-group" id="bloc<?php echo $key; ?>">
+            <div class="form-group blocs" id="bloc<?php echo $key; ?>">
                 <img src="../../assets/imgs/del.png" class="delBloc" onclick="delBloc('bloc<?php echo $key; ?>');">
                 <label for="titre">Titre du bloc</label>
                 <input type="text" class="form-control titre" name="titre[]" maxlength="50" size="55" value="<?php echo $value['titre'] ?>">

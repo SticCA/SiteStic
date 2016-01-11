@@ -26,7 +26,7 @@ function addBloc(){
     /**********************************************/
 
     var div = document.createElement("div");
-    $(div).attr("class","form-group");
+    $(div).attr("class","form-group blocs");
     $(div).attr("id", bloc);
 
     /**********************************************/
