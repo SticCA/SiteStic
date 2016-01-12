@@ -78,21 +78,22 @@ $app->post('/admin/traitement/:site/:page', function ($site, $page) use ($app) {
         // enregistrement des blocs
         for($i = 0; $i < sizeof($data['titre']); $i++){
 
-            $text = str_replace("<img ", "<img class=\"img-responsive\" ", $data['text'][$i]);
+			$text = $data['text'][$i];
+            $text = str_replace("<img ", "<img class=\"img-responsive\" ", $text);
             $text = ($page != "accueil") ? str_replace("../../assets", "../assets", $text) : $text;
             $text = str_replace("<table", "<table class=\"table table-bordered\"", $text);
 
             if($_FILES['img']['name'][$i]){
-                move_uploaded_file($_FILES['img']['tmp_name'][$i], "file/imgs/".$_FILES['img']['name'][$i]);
+                move_uploaded_file($_FILES['img']['tmp_name'][$i], "files/imgs/".$_FILES['img']['name'][$i]);
                 $directory = ($page != "accueil") ? "../" : "" ;
-                $dir = $directory."file/imgs/".$_FILES['img']['name'][$i];
+                $dir = $directory."files/imgs/".$_FILES['img']['name'][$i];
                 $text = str_replace("#IMG#", "<img class=\"img-responsive\" src=\"".$dir."\">", $text);
             }
 
             if($_FILES['doc']['name'][$i]){
-                move_uploaded_file($_FILES['doc']['tmp_name'][$i], "file/docs/".$_FILES['doc']['name'][$i]);
+                move_uploaded_file($_FILES['doc']['tmp_name'][$i], "files/docs/".$_FILES['doc']['name'][$i]);
                 $directory = ($page != "accueil") ? "../" : "" ;
-                $dir = $directory."file/docs/".$_FILES['docs']['name'][$i];
+                $dir = $directory."files/docs/".$_FILES['docs']['name'][$i];
                 $text = str_replace("#FILE#", "<a href=".$dir."\">", $text);
                 $text = str_replace("#", "</a>", $text);
             }
