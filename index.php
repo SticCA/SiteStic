@@ -138,7 +138,7 @@ $app->get('/:site', function ($site) use ($app) {
         $PAGE_ID = ConstanteArray::$config['PAGE_SITE_ID']["accueil"];
 
         // select des infos deja presentes
-        $contentData = $app->ACCES_BASE->SelectBDD('page_content', $SITE_ID, $PAGE_ID, true);
+        $contentData = $app->ACCES_BASE->SelectBDD('page_content', $SITE_ID, $PAGE_ID);
         if(isset($contentData['BLOC'])) {
             $contentData['BLOC'] = View::affBloc($contentData['BLOC']);
         }
@@ -162,7 +162,7 @@ $app->get('/:site(/)(:page)', function ($site, $page) use ($app) {
             $PAGE_ID = ConstanteArray::$config['PAGE_SITE_ID'][$page];
 
             // select des infos deja presentes
-            $contentData = $app->ACCES_BASE->SelectBDD('page_content', $SITE_ID, $PAGE_ID, true);
+            $contentData = $app->ACCES_BASE->SelectBDD('page_content', $SITE_ID, $PAGE_ID);
             if(isset($contentData['BLOC'])) {
                 $contentData['BLOC'] = View::affBloc($contentData['BLOC']);
             }
