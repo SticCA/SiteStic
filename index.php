@@ -3,6 +3,7 @@
 // Chargement des librairies via composer
 require 'vendor/autoload.php';
 require 'app/BDD.php';
+require 'app/View.php';
 require 'app/ConstanteArray.php';
 require 'app/PHPExcel/Classes/PHPExcel.php';
 
@@ -30,6 +31,7 @@ $app->config(array(
 
 // Base de donnée
 $app->ACCES_BASE = new BDD(HOST_BDD, LOGIN_BDD, PWD_BDD);
+$app->View = new View();
 
 //////////////////////////////////////////////////////////////////////////
 
@@ -72,31 +74,32 @@ $app->post('/admin/traitement/:site/:page', function ($site, $page) use ($app) {
     $app->ACCES_BASE->DeleteBDD('page_content', $data['SITE_ID'], $data['PAGE_ID']);
 
     if(isset($data['titre']) && isset($data['text'])) {
-        $dataBloc['titre'] = $data['titre'];
-        $dataBloc['text'] = $data['text'];
-        unset($data['titre']);
-        unset($data['text']);
 
         // enregistrement des blocs
-        for($i = 0; $i < sizeof($dataBloc['titre']); $i++){
+        for($i = 0; $i < sizeof($data['titre']); $i++){
 
-            if(!strpos($dataBloc['text'][$i], "data")){
-                $text = str_replace("<img ", "<img class=\"img-responsive\" ", $dataBloc['text'][$i]);
+            if(!strpos($data['text'][$i], "data")){
+                $text = str_replace("<img ", "<img class=\"img-responsive\" ", $data['text'][$i]);
                 $text = str_replace("../../assets", "../assets", $text);
             }else{
-                $text = $dataBloc['text'][$i];
+                $text = $data['text'][$i];
             }
 
             $params = array(
                 'SITE_ID' => $data['SITE_ID'],
                 'PAGE_ID' => $data['PAGE_ID'],
-                'ZONE_TITRE_BLOC' => $dataBloc['titre'][$i],
-                'ZONE_TEXT_BLOC' => $text
+                'ZONE_TITRE_BLOC' => $data['titre'][$i],
+                'ZONE_TEXT_BLOC' => $text,
+                'MEDIA1' => $data['media'.$i][0]
             );
+
+            unset($data['media'.$i]);
 
             $app->ACCES_BASE->InsertBDD('page_content', $params);
         }
 
+        unset($data['titre']);
+        unset($data['text']);
     }
 
     // enregistrement des 3 bloc couleur
@@ -120,6 +123,7 @@ $app->get('/:site', function ($site) use ($app) {
 
         // select des infos deja presentes
         $contentData = $app->ACCES_BASE->SelectBDD('page_content', $SITE_ID, $PAGE_ID);
+        $contentData['BLOC'] = View::affBloc($contentData['BLOC']);
 
         $app->render('accueil.php', array('site' => $site, 'contentData' => $contentData));
 
@@ -142,6 +146,7 @@ $app->get('/:site(/)(:page)', function ($site, $page) use ($app) {
 
             // select des infos deja presentes
             $contentData = $app->ACCES_BASE->SelectBDD('page_content', $SITE_ID, $PAGE_ID);
+            $contentData['BLOC'] = View::affBloc($contentData['BLOC']);
 
             if($page == "professionnalisation") {
 

@@ -60,7 +60,8 @@ class BDD
             }else{
                 $res['BLOC'][] = array(
                     'titre' => $resultat->ZONE_TITRE_BLOC,
-                    'text' => $resultat->ZONE_TEXT_BLOC
+                    'text' => $resultat->ZONE_TEXT_BLOC,
+                    'media1' => $resultat->MEDIA1
                 );
             }
         }

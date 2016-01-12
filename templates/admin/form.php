@@ -29,7 +29,6 @@
         <label for="text_info3">Text</label>
         <input type="text" class="form-control" name="ZONE_TEXTE3" maxlength="60" value="<?php if(!empty($contentData['COLOR']['text3'])) echo $contentData['COLOR']['text3']; ?>" required>
     </div>
-    <hr>
 
     <?php } ?>
 
@@ -38,6 +37,36 @@
             foreach ($contentData['BLOC'] as $key => $value) { ?>
             <div class="form-group blocs" id="bloc<?php echo $key; ?>">
                 <img src="../../assets/imgs/del.png" class="delBloc" onclick="delBloc('bloc<?php echo $key; ?>');">
+                <label for="titre">Image du bloc</label>
+                <br />
+                <label class="radio-inline">
+                    <input type="radio" name="media<?php echo $key; ?>[]" value="worldgrid" required <?php if($value['media1'] == "worldgrid") echo "checked" ?>> <i class="flaticon-worldgrid"></i>
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="media<?php echo $key; ?>[]" value="briefcase69" required <?php if($value['media1'] == "briefcase69") echo "checked" ?>> <i class="flaticon-briefcase69"></i>
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="media<?php echo $key; ?>[]" value="downloading" required <?php if($value['media1'] == "downloading") echo "checked" ?>> <i class="flaticon-downloading"></i>
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="media<?php echo $key; ?>[]" value="edit-text" required <?php if($value['media1'] == "edit-text") echo "checked" ?>> <i class="flaticon-edit-text"></i>
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="media<?php echo $key; ?>[]" value="graduation-cap2" required <?php if($value['media1'] == "graduation-cap2") echo "checked" ?>> <i class="flaticon-graduation-cap2"></i>
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="media<?php echo $key; ?>[]" value="magnifier13" required <?php if($value['media1'] == "magnifier13") echo "checked" ?>> <i class="flaticon-magnifier13"></i>
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="media<?php echo $key; ?>[]" value="mark1" required <?php if($value['media1'] == "mark1") echo "checked" ?>> <i class="flaticon-mark1"></i>
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="media<?php echo $key; ?>[]" value="shopping159" required <?php if($value['media1'] == "shopping159") echo "checked" ?>> <i class="flaticon-shopping159"></i>
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="media<?php echo $key; ?>[]" value="suitcase58" required <?php if($value['media1'] == "suitcase58") echo "checked" ?>> <i class="flaticon-suitcase58"></i>
+                </label>
+                <br />
                 <label for="titre">Titre du bloc</label>
                 <input type="text" class="form-control titre" name="titre[]" maxlength="50" size="55" value="<?php echo $value['titre'] ?>">
                 <label for="textarea<?php echo $key; ?>">Texte du bloc</label>

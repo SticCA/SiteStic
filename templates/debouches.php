@@ -131,26 +131,7 @@
 
 
                     <?php if(isset($contentData['BLOC'])){
-                        foreach ($contentData['BLOC'] as $key => $value) { ?>
-
-
-                            <div class="row">
-                                <div class="col-md-12 toggle" data-toggle="toggle<?php echo $key ?>">
-                                    <header>
-                                        <i class="flaticon-suitcase58"></i>
-                                        <span class="titre-toggle"><?php echo $value['titre'] ?></span>
-                                        <span class="arrow-toggle"><i class="flaticon-arrow483"></i></span>
-                                    </header>
-
-                                    <article class="row" id="toggle<?php echo $key ?>">
-                                        <div class="col-md-12">
-                                            <?php echo $value['text'] ?>
-                                        </div>
-                                    </article>
-                                </div>
-                            </div>
-
-                        <?php }
+                        echo $contentData['BLOC'];
                     } ?>
 
                 </div>
