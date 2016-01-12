@@ -39,7 +39,7 @@ class BDD
     public function SelectBDD($table, $site_id, $page_id)
     {
         $res = array();
-        $resultats = $this->bdd->query("SELECT * FROM $table WHERE SITE_ID=$site_id AND PAGE_ID=$page_id");
+        $resultats = $this->bdd->query("SELECT * FROM $table WHERE SITE_ID=$site_id AND PAGE_ID=$page_id ORDER BY ZONE_ORDER");
 
         while($resultat = $resultats->fetch(PDO::FETCH_OBJ))
         {
@@ -59,6 +59,7 @@ class BDD
                 );
             }else{
                 $res['BLOC'][] = array(
+                    'order' => $resultat->ZONE_ORDER,
                     'titre' => $resultat->ZONE_TITRE_BLOC,
                     'text' => $resultat->ZONE_TEXT_BLOC,
                     'media1' => $resultat->MEDIA1

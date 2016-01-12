@@ -73,7 +73,6 @@
                             <header>
                                 <img src="../assets/imgs/pie-chart.png" width="40px" style="margin: 3px 3px 5px 15px;">
                                 <span class="titre-toggle" style="top: 5px;">Statistiques</span>
-                                <span class="arrow-toggle"><i class="flaticon-arrow483"></i></span>
                             </header>
 
                             <article class="row" id="toggleStat">

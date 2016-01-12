@@ -15,6 +15,7 @@
             tinymce.init({
                 selector: '#textarea'+id,
                 height: 300,
+                language_url : '<?php echo $directory; ?>assets/js/fr_FR.js',
                 theme: 'modern',
                 plugins: [
                     'advlist autolink lists link image charmap print preview hr anchor pagebreak',
@@ -23,7 +24,7 @@
                     'emoticons template paste textcolor colorpicker textpattern imagetools'
                 ],
                 toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent',
-                toolbar2: 'link image | forecolor backcolor emoticons',
+                toolbar2: 'link image | forecolor backcolor',
                 image_advtab: true,
                 templates: [
                     { title: 'Test template 1', content: 'Test 1' },

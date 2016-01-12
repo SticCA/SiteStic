@@ -68,7 +68,7 @@ function addBloc(){
 
     //label textearea
     var label_txt = document.createElement("label");
-    $(label_txt).text("Texte du bloc");
+    $(label_txt).html("<br>Texte du bloc :<br>* Pour afficher l\'image précédement ajouté, il faut ajouter \"#IMG#\" dans le texte<br>** Pour afficher le fichier précédement ajouté, il faut ajouter \"#FILE#Texte du lien#\" dans le texte");
 
     // Textearea Tinymce
     var text = document.createElement("textarea");
@@ -79,7 +79,10 @@ function addBloc(){
 
     $(div).appendTo("#content");
     $(img).appendTo("#" + bloc);
+    $("#" + bloc).append(addOrder());
     $("#" + bloc).append(addIcon());
+    $("#" + bloc).append(addFileImg());
+    $("#" + bloc).append(addFileDoc());
     $(label_titre).appendTo("#" + bloc);
     $(input).appendTo("#" + bloc);
     $(label_txt).appendTo("#" + bloc);
@@ -102,6 +105,18 @@ function delBloc(bloc){
             $('#valider').prop("disabled", true);
         }
     }
+}
+
+function addFileImg(){
+    return '<label class="control-label">Ajout Image</label> <input name="img[]" type="file" accept="image/*"><br>';
+}
+
+function addFileDoc(){
+    return '<label class="control-label">Ajout Document</label> <input name="doc[]" type="file" accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"><br>';
+}
+
+function addOrder(){
+    return '<label for="color2">Ordre d\'affichage du bloc</label><br><input type="number" name="order[]" min="1" id="" value="'+(num)+'" required><br>';
 }
 
 function addIcon(){

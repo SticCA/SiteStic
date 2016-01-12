@@ -78,16 +78,29 @@ $app->post('/admin/traitement/:site/:page', function ($site, $page) use ($app) {
         // enregistrement des blocs
         for($i = 0; $i < sizeof($data['titre']); $i++){
 
-            if(!strpos($data['text'][$i], "data")){
-                $text = str_replace("<img ", "<img class=\"img-responsive\" ", $data['text'][$i]);
-                $text = str_replace("../../assets", "../assets", $text);
-            }else{
-                $text = $data['text'][$i];
+            $text = str_replace("<img ", "<img class=\"img-responsive\" ", $data['text'][$i]);
+            $text = ($page != "accueil") ? str_replace("../../assets", "../assets", $text) : $text;
+            $text = str_replace("<table", "<table class=\"table table-bordered\"", $text);
+
+            if($_FILES['img']['name'][$i]){
+                move_uploaded_file($_FILES['img']['tmp_name'][$i], "file/imgs/".$_FILES['img']['name'][$i]);
+                $directory = ($page != "accueil") ? "../" : "" ;
+                $dir = $directory."file/imgs/".$_FILES['img']['name'][$i];
+                $text = str_replace("#IMG#", "<img class=\"img-responsive\" src=\"".$dir."\">", $text);
+            }
+
+            if($_FILES['doc']['name'][$i]){
+                move_uploaded_file($_FILES['doc']['tmp_name'][$i], "file/docs/".$_FILES['doc']['name'][$i]);
+                $directory = ($page != "accueil") ? "../" : "" ;
+                $dir = $directory."file/docs/".$_FILES['docs']['name'][$i];
+                $text = str_replace("#FILE#", "<a href=".$dir."\">", $text);
+                $text = str_replace("#", "</a>", $text);
             }
 
             $params = array(
                 'SITE_ID' => $data['SITE_ID'],
                 'PAGE_ID' => $data['PAGE_ID'],
+                'ZONE_ORDER' => $data['order'][$i],
                 'ZONE_TITRE_BLOC' => $data['titre'][$i],
                 'ZONE_TEXT_BLOC' => $text,
                 'MEDIA1' => $data['media'.$i][0]
@@ -98,8 +111,11 @@ $app->post('/admin/traitement/:site/:page', function ($site, $page) use ($app) {
             $app->ACCES_BASE->InsertBDD('page_content', $params);
         }
 
+        unset($_FILES['img']);
+        unset($_FILES['docs']);
         unset($data['titre']);
         unset($data['text']);
+        unset($data['order']);
     }
 
     // enregistrement des 3 bloc couleur
@@ -122,7 +138,7 @@ $app->get('/:site', function ($site) use ($app) {
         $PAGE_ID = ConstanteArray::$config['PAGE_SITE_ID']["accueil"];
 
         // select des infos deja presentes
-        $contentData = $app->ACCES_BASE->SelectBDD('page_content', $SITE_ID, $PAGE_ID);
+        $contentData = $app->ACCES_BASE->SelectBDD('page_content', $SITE_ID, $PAGE_ID, true);
         if(isset($contentData['BLOC'])) {
             $contentData['BLOC'] = View::affBloc($contentData['BLOC']);
         }
@@ -146,7 +162,7 @@ $app->get('/:site(/)(:page)', function ($site, $page) use ($app) {
             $PAGE_ID = ConstanteArray::$config['PAGE_SITE_ID'][$page];
 
             // select des infos deja presentes
-            $contentData = $app->ACCES_BASE->SelectBDD('page_content', $SITE_ID, $PAGE_ID);
+            $contentData = $app->ACCES_BASE->SelectBDD('page_content', $SITE_ID, $PAGE_ID, true);
             if(isset($contentData['BLOC'])) {
                 $contentData['BLOC'] = View::affBloc($contentData['BLOC']);
             }

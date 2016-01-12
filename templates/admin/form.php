@@ -1,4 +1,4 @@
-<form method="post" action="<?php echo $directory.'admin/traitement/'.$site.'/'.$page; ?>">
+<form method="post" enctype="multipart/form-data" action="<?php echo $directory.'admin/traitement/'.$site.'/'.$page; ?>">
 
     <?php if($page == "accueil") { ?>
 
@@ -37,8 +37,10 @@
             foreach ($contentData['BLOC'] as $key => $value) { ?>
             <div class="form-group blocs" id="bloc<?php echo $key; ?>">
                 <img src="../../assets/imgs/del.png" class="delBloc" onclick="delBloc('bloc<?php echo $key; ?>');">
+                <label for="color2">Ordre d'affichage du bloc</label><br>
+                <input type="number" name="order[]" min="1" value="<?php if($value['order']) echo $value['order']; else echo ($key+1); ?>" required><br>
                 <label for="titre">Image du bloc</label>
-                <br />
+                <br>
                 <label class="radio-inline">
                     <input type="radio" name="media<?php echo $key; ?>[]" value="worldgrid" required <?php if($value['media1'] == "worldgrid") echo "checked" ?>> <i class="flaticon-worldgrid"></i>
                 </label>
@@ -66,10 +68,16 @@
                 <label class="radio-inline">
                     <input type="radio" name="media<?php echo $key; ?>[]" value="suitcase58" required <?php if($value['media1'] == "suitcase58") echo "checked" ?>> <i class="flaticon-suitcase58"></i>
                 </label>
-                <br />
+                <br>
+                <label class="control-label">Ajout Image</label>
+                <input name="img[]" type="file" accept="image/*"><br>
+                <label class="control-label">Ajout Document</label>
+                <input name="doc[]" type="file" accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"><br>
                 <label for="titre">Titre du bloc</label>
                 <input type="text" class="form-control titre" name="titre[]" maxlength="50" size="55" value="<?php echo $value['titre'] ?>">
-                <label for="textarea<?php echo $key; ?>">Texte du bloc</label>
+                <br><label for="textarea<?php echo $key; ?>">Texte du bloc :
+                    <br><?php echo utf8_encode('* Pour afficher l\'image précédement ajouté, il faut ajouter "#IMG#" dans le texte'); ?>
+                    <br><?php echo utf8_encode('** Pour afficher le fichier précédement ajouté, il faut ajouter "#FILE#Texte du lien#" dans le texte'); ?></label>
                 <textarea id="textarea<?php echo $key; ?>" name="text[]"><?php echo $value['text'] ?></textarea>
             </div>
             <script type="text/javascript">initTinyMce(<?php echo $key; ?>);</script>

@@ -19,7 +19,7 @@ class View
 
                     <article class="row" id="toggle'.$key.'">
                         <div class="col-md-12">
-                            '.$value["titre"].'
+                            '.$value["text"].'
                         </div>
                     </article>
                 </div>
