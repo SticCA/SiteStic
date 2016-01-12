@@ -154,7 +154,6 @@ $app->get('/:site(/)(:page)', function ($site, $page) use ($app) {
             if($page == "professionnalisation") {
 
                 $contentData['STAT'] = array();
-                $num = 1;
                 $ligne = 0;
 
                 // Chargement du fichier Excel
@@ -176,7 +175,6 @@ $app->get('/:site(/)(:page)', function ($site, $page) use ($app) {
                     }
                     $ligne++;
                 }
-                //print_r($contentData['STAT']); die;
             }
 
         }else{

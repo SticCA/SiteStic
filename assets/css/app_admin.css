@@ -1,3 +1,14 @@
+@font-face {
+    font-family: 'sansationregular';
+    src: url('../fonts/Sansation-Regular-webfont.eot');
+    src: url('../fonts/Sansation-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Sansation-Regular-webfont.woff') format('woff'),
+    url('../fonts/Sansation-Regular-webfont.ttf') format('truetype'),
+    url('../fonts/Sansation-Regular-webfont.svg#sansationregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 html {
     position: relative;
     min-height: 100%;
@@ -5,6 +16,10 @@ html {
 
 body {
     padding-bottom: 20px;
+}
+
+*{
+    font-family: sansationregular, Tahoma, Verdana, Segoe, sans-serif;
 }
 
 .img-align{
@@ -110,3 +125,12 @@ body {
     border: 1px solid #eee;
     padding: 10px;
 }
+
+#info{
+    font-style: italic;
+    font-size: 30px;
+    text-align: center;
+}
+ul#choix{ margin-top: 3%; text-align: center;}
+ul#choix li{ text-decoration: none; list-style: none; margin-top: 1%; display: inline; }
+a.btn{ font-size: 20px;}

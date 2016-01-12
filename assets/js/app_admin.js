@@ -12,6 +12,22 @@ $(document).ready(function() {
         addBloc();
     });
 
+    $('#btn_miage').bind('click', function(e){
+        e.preventDefault();
+        $('#miage').addClass("active in");
+        $('#role_miage').addClass("active");
+        $('#2ibs').removeClass("active in");
+        $('#role_2ibs').removeClass("active");
+    });
+
+    $('#btn_2ibs').bind('click', function(e){
+        e.preventDefault();
+        $('#2ibs').addClass("active in");
+        $('#role_2ibs').addClass("active");
+        $('#miage').removeClass("active in");
+        $('#role_miage').removeClass("active");
+    });
+
 });
 
 function addBloc(){

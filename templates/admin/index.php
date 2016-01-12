@@ -48,10 +48,10 @@
         <article class="col-sm-3 col-md-2 sidebar">
 
             <ul id="myTabs" class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="<?php if($site == "miage") {?>active<?php } ?>">
+                <li id="role_miage" role="presentation" class="<?php if($site == "miage") {?>active<?php } ?>">
                     <a href="#miage" id="miage-tab" role="tab" data-toggle="tab" aria-controls="miage" aria-expanded="true">MIAGE</a>
                 </li>
-                <li role="presentation" class="<?php if($site == "2ibs") {?>active<?php } ?>">
+                <li id="role_2ibs" role="presentation" class="<?php if($site == "2ibs") {?>active<?php } ?>">
                     <a href="#2ibs" role="tab" id="2ibs-tab" data-toggle="tab" aria-controls="2ibs" aria-expanded="false">2IBS</a>
                 </li>
             </ul>
@@ -92,15 +92,25 @@
             <h1 class="page-header">Administration <?php if($site) echo strtoupper($site)  . " - " . ucfirst($page) ?></h1>
 
             <div class="content">
-                <?php if(empty($page)){ ?><p id="info">Sélectionnez un site et une page pour continuer ...</p><?php }else{ ?>
-                <?php include('form.php'); } ?>
+                <?php if(empty($page)){ ?>
+                    <p id="info">Sélectionnez un site et une page pour continuer ...</p>
+
+                    <ul id="choix">
+                        <li><a href="#miage" id="btn_miage" class="btn btn-info">Master MIAGE</a></li>
+                        <li><a href="#2ibs" id="btn_2ibs" class="btn btn-success">Master 2IBS</a></li>
+                    </ul>
+                <?php
+                }else{ ?>
+                <?php
+                    include('form.php');
+                } ?>
             </div>
         </article>
     </div>
 </section>
 </body>
 
-<script type="text/javascript" src="<?php echo $directory; ?>assets/js/jquery.js"></script>
-<script type="text/javascript" src="<?php echo $directory; ?>assets/css/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="<?php echo $directory; ?>assets/js/app_admin.js"></script>
+    <script type="text/javascript" src="<?php echo $directory; ?>assets/js/jquery.js"></script>
+    <script type="text/javascript" src="<?php echo $directory; ?>assets/css/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="<?php echo $directory; ?>assets/js/app_admin.js"></script>
 </html>
