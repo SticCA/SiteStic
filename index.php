@@ -123,8 +123,9 @@ $app->get('/:site', function ($site) use ($app) {
 
         // select des infos deja presentes
         $contentData = $app->ACCES_BASE->SelectBDD('page_content', $SITE_ID, $PAGE_ID);
-        $contentData['BLOC'] = View::affBloc($contentData['BLOC']);
-
+        if(isset($contentData['BLOC'])) {
+            $contentData['BLOC'] = View::affBloc($contentData['BLOC']);
+        }
         $app->render('accueil.php', array('site' => $site, 'contentData' => $contentData));
 
     }else{
@@ -146,7 +147,9 @@ $app->get('/:site(/)(:page)', function ($site, $page) use ($app) {
 
             // select des infos deja presentes
             $contentData = $app->ACCES_BASE->SelectBDD('page_content', $SITE_ID, $PAGE_ID);
-            $contentData['BLOC'] = View::affBloc($contentData['BLOC']);
+            if(isset($contentData['BLOC'])) {
+                $contentData['BLOC'] = View::affBloc($contentData['BLOC']);
+            }
 
             if($page == "professionnalisation") {
 
