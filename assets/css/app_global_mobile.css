@@ -43,4 +43,9 @@
     header .flaticon-pin66:before {
         font-size: 30px;
     }
+
+    iframe{
+        width: 100%;
+        height: auto;
+    }
 }
