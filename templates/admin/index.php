@@ -30,7 +30,9 @@
                     { title: 'Test template 1', content: 'Test 1' },
                     { title: 'Test template 2', content: 'Test 2' }
                 ],
-                image_list: [<?php
+                image_list: [
+                    {title: 'Logo UPJV', value: '../../assets/imgs/upjv.jpg'}
+                    <?php
                     $dir = "files/imgs";
                     if (is_dir($dir)) {
                         $direc = opendir($dir);
