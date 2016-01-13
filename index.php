@@ -79,9 +79,6 @@ $app->post('/admin/traitement/:site/:page', function ($site, $page) use ($app) {
         for($i = 0; $i < sizeof($data['titre']); $i++){
 
 			$text = $data['text'][$i];
-            $text = str_replace("<img ", "<img class=\"img-responsive\" ", $text);
-            $text = ($page != "accueil") ? str_replace("../../assets", "../assets", $text) : $text;
-            $text = str_replace("<table", "<table class=\"table table-bordered\"", $text);
 
             if($_FILES['img']['name'][$i]){
                 move_uploaded_file($_FILES['img']['tmp_name'][$i], "files/imgs/".$_FILES['img']['name'][$i]);
@@ -97,6 +94,11 @@ $app->post('/admin/traitement/:site/:page', function ($site, $page) use ($app) {
                 $text = str_replace("#FILE#", "<a href=".$dir."\">", $text);
                 $text = str_replace("#", "</a>", $text);
             }
+
+            $text = str_replace("<img ", "<img class=\"img-responsive\" ", $text);
+            $text = ($page != "accueil") ? str_replace("../../assets", "../assets", $text) : str_replace("../../assets", "assets", $text);
+            $text = ($page != "accueil") ? str_replace("../../files", "../files", $text) : str_replace("../../files", "files", $text);
+            $text = str_replace("<table", "<table class=\"table table-bordered\"", $text);
 
             $params = array(
                 'SITE_ID' => $data['SITE_ID'],

@@ -78,7 +78,7 @@
                 <br><label for="textarea<?php echo $key; ?>">Texte du bloc :
                     <br><?php echo utf8_encode('* Pour afficher l\'image précédement ajouté, il faut ajouter "#IMG#" dans le texte'); ?>
                     <br><?php echo utf8_encode('** Pour afficher le fichier précédement ajouté, il faut ajouter "#FILE#Texte du lien#" dans le texte'); ?></label>
-                <textarea id="textarea<?php echo $key; ?>" name="text[]"><?php echo $value['text'] ?></textarea>
+                <textarea id="textarea<?php echo $key; ?>" name="text[]"><?php echo str_replace("assets", "../../assets", str_replace("files", "../../files", $value['text'])); ?></textarea>
             </div>
             <script type="text/javascript">initTinyMce(<?php echo $key; ?>);</script>
         <?php } } ?>

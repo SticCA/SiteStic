@@ -23,7 +23,6 @@ for($i = 1; $i < sizeof($chemin) - 1; $i++){
     <link rel="stylesheet" href="<?php echo $directory;?>assets/css/app_global.css">
     <style>
         body{ background-color: #ecf0f1;}
-        section{ margin-top: 10%; }
         p, ul{ text-align: center; font-size: 2em;}
         p#titre{ font-size: 5em; }
         ul{ margin-top: 3%; }

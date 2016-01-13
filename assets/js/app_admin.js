@@ -12,6 +12,25 @@ $(document).ready(function() {
         addBloc();
     });
 
+    $('form').bind('submit', function(e){
+
+        flag = false;
+
+        for(i = 0; i < num; i++){
+            id = 'body[data-id="textarea1"]';
+            if($(id).innerHTML() == ""){
+                flag = true;
+            }
+        }
+
+        if(!flag){
+            return;
+        }
+
+        e.preventDefault();
+        alert("Veuillez saisir l'ensemble des textes !");
+    });
+
     $('#btn_miage').bind('click', function(e){
         e.preventDefault();
         $('#miage').addClass("active in");
@@ -99,6 +118,8 @@ function addBloc(){
 function delBloc(bloc){
     if(confirm("Etes-vous sûr de vouloir supprimer ce bloc ?")) {
         var id = "#" + bloc;
+        var text = "textarea"+num;
+        tinymce.get(text).remove();
         $(id).remove();
         num = num - 1;
         if(num == 0 && colorTest == 0){

@@ -30,10 +30,20 @@
                     { title: 'Test template 1', content: 'Test 1' },
                     { title: 'Test template 2', content: 'Test 2' }
                 ],
-                image_list: [
-                    {title: 'Logo UPJV', value: '../../assets/imgs/upjv.jpg'}
-                ],
-                //external_image_list_url : "myexternallist.js",
+                image_list: [<?php
+                    $dir = "files/imgs";
+                    if (is_dir($dir)) {
+                        $direc = opendir($dir);
+                        while ($file = readdir($direc)) {
+                            if (is_file("$dir/$file") && getimagesize("$dir/$file") != FALSE) {
+                                // We got ourselves a file! Make an array entry:
+                                echo "{title: '".$file."', value: '../../".$dir."/".$file."'}";
+                            }
+                        }
+
+                        closedir($direc);
+                    }
+                ?>],
                 content_css: [
                     '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
                     '//www.tinymce.com/css/codepen.min.css'
