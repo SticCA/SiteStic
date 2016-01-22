@@ -1,4 +1,5 @@
 var num = $('textarea').length;
+var number = 0;
 var colorTest = $('#color1').length;
 
 $(document).ready(function() {
@@ -10,25 +11,6 @@ $(document).ready(function() {
     $('button').bind('click', function(e){
         e.preventDefault();
         addBloc();
-    });
-
-    $('form').bind('submit', function(e){
-
-        flag = false;
-
-        for(i = 0; i < num; i++){
-            id = 'body[data-id="textarea1"]';
-            if($(id).innerHTML() == ""){
-                flag = true;
-            }
-        }
-
-        if(!flag){
-            return;
-        }
-
-        e.preventDefault();
-        alert("Veuillez saisir l'ensemble des textes !");
     });
 
     $('#btn_miage').bind('click', function(e){
@@ -114,15 +96,13 @@ function addBloc(){
     }, 1000);
 }
 
-
 function delBloc(bloc){
     if(confirm("Etes-vous sûr de vouloir supprimer ce bloc ?")) {
         var id = "#" + bloc;
         var text = "textarea"+num;
-        tinymce.get(text).remove();
         $(id).remove();
-        num = num - 1;
-        if(num == 0 && colorTest == 0){
+        number = number + 1;
+        if((num - number) == 0 && colorTest == 0){
             $('#valider').prop("disabled", true);
         }
     }

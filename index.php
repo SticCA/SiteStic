@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 // Chargement des librairies via composer
 require 'vendor/autoload.php';
 require 'app/BDD.php';
@@ -25,7 +27,7 @@ $app->add(new \Slim\Middleware\HttpBasicAuthentication(array(
 // config du mode debug et du dossier
 // contenant les templates
 $app->config(array(
-    'debug' => true,
+    'debug' => false,
     'templates.path' => TEMPLATE_FOLDER
 ));
 
@@ -75,23 +77,32 @@ $app->post('/admin/traitement/:site/:page', function ($site, $page) use ($app) {
 
     if(isset($data['titre']) && isset($data['text'])) {
 
+        $validity = true;
+
+        // check validity textarea
+        for($i = 0; $i < sizeof($data['text']); $i++){
+            if(empty($data['text'][$i])){
+                $validity = false;
+            }
+        }
+
         // enregistrement des blocs
-        for($i = 0; $i < sizeof($data['titre']); $i++){
+        for ($i = 0; $i < sizeof($data['titre']); $i++) {
 
-			$text = $data['text'][$i];
+            $text = $data['text'][$i];
 
-            if($_FILES['img']['name'][$i]){
-                move_uploaded_file($_FILES['img']['tmp_name'][$i], "files/imgs/".$_FILES['img']['name'][$i]);
-                $directory = ($page != "accueil") ? "../" : "" ;
-                $dir = $directory."files/imgs/".$_FILES['img']['name'][$i];
-                $text = str_replace("#IMG#", "<img class=\"img-responsive\" src=\"".$dir."\">", $text);
+            if ($_FILES['img']['name'][$i]) {
+                move_uploaded_file($_FILES['img']['tmp_name'][$i], "files/imgs/" . $_FILES['img']['name'][$i]);
+                $directory = ($page != "accueil") ? "../" : "";
+                $dir = $directory . "files/imgs/" . $_FILES['img']['name'][$i];
+                $text = str_replace("#IMG#", "<img class=\"img-responsive\" src=\"" . $dir . "\">", $text);
             }
 
-            if($_FILES['doc']['name'][$i]){
-                move_uploaded_file($_FILES['doc']['tmp_name'][$i], "files/docs/".$_FILES['doc']['name'][$i]);
-                $directory = ($page != "accueil") ? "../" : "" ;
-                $dir = $directory."files/docs/".$_FILES['docs']['name'][$i];
-                $text = str_replace("#FILE#", "<a href=".$dir."\">", $text);
+            if ($_FILES['doc']['name'][$i]) {
+                move_uploaded_file($_FILES['doc']['tmp_name'][$i], "files/docs/" . $_FILES['doc']['name'][$i]);
+                $directory = ($page != "accueil") ? "../" : "";
+                $dir = $directory . "files/docs/" . $_FILES['docs']['name'][$i];
+                $text = str_replace("#FILE#", "<a href=" . $dir . "\">", $text);
                 $text = str_replace("#", "</a>", $text);
             }
 
@@ -106,10 +117,10 @@ $app->post('/admin/traitement/:site/:page', function ($site, $page) use ($app) {
                 'ZONE_ORDER' => $data['order'][$i],
                 'ZONE_TITRE_BLOC' => $data['titre'][$i],
                 'ZONE_TEXT_BLOC' => $text,
-                'MEDIA1' => $data['media'.$i][0]
+                'MEDIA1' => $data['media' . $i][0]
             );
 
-            unset($data['media'.$i]);
+            unset($data['media' . $i]);
 
             $app->ACCES_BASE->InsertBDD('page_content', $params);
         }
@@ -119,11 +130,19 @@ $app->post('/admin/traitement/:site/:page', function ($site, $page) use ($app) {
         unset($data['titre']);
         unset($data['text']);
         unset($data['order']);
+
+
+        if($validity) {
+            $app->flash('info', 'Enregistrement OK');
+        }else{
+            $app->flash('erreur', 'Veuillez saisir l\'ensemble des blocs !');
+        }
     }
 
     // enregistrement des 3 bloc couleur
     if($page == "accueil"){
         $app->ACCES_BASE->InsertBDD('page_content', $data);
+        $app->flash('info', 'Enregistrement OK');
     }
 
     $app->redirect("../../../admin/$site/$page");

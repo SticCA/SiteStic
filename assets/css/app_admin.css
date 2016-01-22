@@ -134,3 +134,19 @@ body {
 ul#choix{ margin-top: 3%; text-align: center;}
 ul#choix li{ text-decoration: none; list-style: none; margin-top: 1%; display: inline; }
 a.btn{ font-size: 20px;}
+
+blockquote{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 1px solid #eee;
+}
+
+blockquote.info{
+    border-left: 8px solid green;
+    color: green;
+}
+
+blockquote.erreur{
+    border-left: 8px solid red;
+    color: red;
+}

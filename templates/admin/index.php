@@ -31,7 +31,7 @@
                     { title: 'Test template 2', content: 'Test 2' }
                 ],
                 image_list: [
-                    {title: 'Logo UPJV', value: '../../assets/imgs/upjv.jpg'}
+                    {title: 'Logo UPJV', value: '../../assets/imgs/upjv.jpg'},
                     <?php
                     $dir = "files/imgs";
                     if (is_dir($dir)) {
@@ -39,7 +39,7 @@
                         while ($file = readdir($direc)) {
                             if (is_file("$dir/$file") && getimagesize("$dir/$file") != FALSE) {
                                 // We got ourselves a file! Make an array entry:
-                                echo "{title: '".$file."', value: '../../".$dir."/".$file."'}";
+                                echo "{title: '".$file."', value: '../../".$dir."/".$file."'},";
                             }
                         }
 

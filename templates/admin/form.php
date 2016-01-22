@@ -1,3 +1,10 @@
+<?php
+if($flash['info']) {
+    echo "<blockquote class='info'><p>" . $flash['info'] . "</p></blockquote>";
+}elseif($flash['erreur']) {
+    echo "<blockquote class='erreur'><p>" . $flash['erreur'] . "</p></blockquote>";
+}
+?>
 <form method="post" enctype="multipart/form-data" action="<?php echo $directory.'admin/traitement/'.$site.'/'.$page; ?>">
 
     <?php if($page == "accueil") { ?>
@@ -76,8 +83,8 @@
                 <label for="titre">Titre du bloc</label>
                 <input type="text" class="form-control titre" name="titre[]" maxlength="50" size="55" value="<?php echo $value['titre'] ?>">
                 <br><label for="textarea<?php echo $key; ?>">Texte du bloc :
-                    <br><?php echo utf8_encode('* Pour afficher l\'image prÈcÈdement ajoutÈ, il faut ajouter "#IMG#" dans le texte'); ?>
-                    <br><?php echo utf8_encode('** Pour afficher le fichier prÈcÈdement ajoutÈ, il faut ajouter "#FILE#Texte du lien#" dans le texte'); ?></label>
+                    <br>* Pour afficher l'image pr√©c√©dement ajout√©, il faut ajouter "#IMG#" dans le texte
+                    <br>** Pour afficher le fichier pr√©c√©dement ajout√©, il faut ajouter "#FILE#Texte du lien#" dans le texte</label>
                 <textarea id="textarea<?php echo $key; ?>" name="text[]"><?php echo str_replace("assets", "../../assets", str_replace("files", "../../files", $value['text'])); ?></textarea>
             </div>
             <script type="text/javascript">initTinyMce(<?php echo $key; ?>);</script>
