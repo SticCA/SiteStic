@@ -177,7 +177,7 @@ $app->get('/:site(/)(:page)', function ($site, $page) use ($app) {
     if(in_array($site, ConstanteArray::$config['SITE_AVAILABLE'])
         && file_exists(TEMPLATE_FOLDER . "/" . $page . ".php")) {
 
-        if ($page != "nous-localiser") {
+        if ($page != "nous-localiser" && $page != "mentions-legales") {
 
             $SITE_ID = ConstanteArray::$config['SITE_ID'][$site];
             $PAGE_ID = ConstanteArray::$config['PAGE_SITE_ID'][$page];

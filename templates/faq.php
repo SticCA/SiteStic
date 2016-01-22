@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name='viewport' content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-    <title>Pedagogie - <?php echo strtoupper($site); ?></title>
+    <title>FAQ - <?php echo strtoupper($site); ?></title>
     <link rel="icon" type="image/png" href="../assets/imgs/upjv.jpg" />
     <link rel="stylesheet" href="../assets/css/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/flaticon.css">
@@ -38,7 +38,7 @@
                         <li><a href="../<?php echo $site; ?>">Accueil</a></li>
                         <li><a href="../<?php echo $site; ?>/candidater">Candidater</a></li>
                         <li><a href="../<?php echo $site; ?>/contact">Contact</a></li>
-                        <li><a href="../<?php echo $site; ?>/faq">FAQ</a></li>
+                        <li class="active"><a href="../<?php echo $site; ?>/faq">FAQ</a></li>
                         <li><a href="../<?php echo $site; ?>/mentions-legales">Mentions Légales</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
@@ -50,7 +50,7 @@
         <div class="row">
             <article class="col-sm-3 col-md-2 sidebar">
                 <ul class="nav nav-sidebar" id="sidebar-menu">
-                    <li class="active"><a href="../<?php echo $site; ?>/pedagogie"><i class="flaticon-graduation-cap2"></i> Pédagogie</a></li>
+                    <li><a href="../<?php echo $site; ?>/pedagogie"><i class="flaticon-graduation-cap2"></i> Pédagogie</a></li>
                     <li><a href="../<?php echo $site; ?>/specialisations"><i class="flaticon-mark1"></i> Spécialisations</a></li>
                     <li><a href="../<?php echo $site; ?>/professionnalisation"><i class="flaticon-briefcase69"></i> Professionnalisation</a></li>
                     <li><a href="../<?php echo $site; ?>/debouches"><i class="flaticon-suitcase58"></i> Débouchés</a></li>
@@ -65,7 +65,7 @@
             </article>
             <article class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                 <h1 class="page-header">
-                    Pédagogies
+                    FAQ
                 </h1>
 
                 <div class="content">

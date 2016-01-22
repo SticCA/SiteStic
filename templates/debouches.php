@@ -38,6 +38,8 @@
                         <li><a href="../<?php echo $site; ?>">Accueil</a></li>
                         <li><a href="../<?php echo $site; ?>/candidater">Candidater</a></li>
                         <li><a href="../<?php echo $site; ?>/contact">Contact</a></li>
+                        <li><a href="../<?php echo $site; ?>/faq">FAQ</a></li>
+                        <li><a href="../<?php echo $site; ?>/mentions-legales">Mentions Légales</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>

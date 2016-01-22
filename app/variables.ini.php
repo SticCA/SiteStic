@@ -37,7 +37,9 @@ ConstanteArray::$config['PAGE_AVAILABLE'] = array(
     "specialisations",
     "professionnalisation",
     "debouches",
-    "telechargement"
+    "telechargement",
+    "faq",
+    "mentions-legales"
 );
 
 // Site ID
@@ -56,4 +58,5 @@ ConstanteArray::$config['PAGE_SITE_ID'] = array(
     "professionnalisation" => 6,
     "debouches" => 7,
     "telechargement" => 9,
+    "faq" => 10,
 );
