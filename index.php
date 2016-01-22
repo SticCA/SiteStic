@@ -132,9 +132,7 @@ $app->post('/admin/traitement/:site/:page', function ($site, $page) use ($app) {
         unset($data['order']);
 
 
-        if($validity) {
-            $app->flash('info', 'Enregistrement OK');
-        }else{
+        if(!$validity) {
             $app->flash('erreur', 'Veuillez saisir l\'ensemble des blocs !');
         }
     }
@@ -142,8 +140,9 @@ $app->post('/admin/traitement/:site/:page', function ($site, $page) use ($app) {
     // enregistrement des 3 bloc couleur
     if($page == "accueil"){
         $app->ACCES_BASE->InsertBDD('page_content', $data);
-        $app->flash('info', 'Enregistrement OK');
     }
+
+    $app->flash('info', 'Enregistrement OK');
 
     $app->redirect("../../../admin/$site/$page");
 

@@ -1,7 +1,8 @@
 <?php
 if($flash['info']) {
     echo "<blockquote class='info'><p>" . $flash['info'] . "</p></blockquote>";
-}elseif($flash['erreur']) {
+}
+if($flash['erreur']) {
     echo "<blockquote class='erreur'><p>" . $flash['erreur'] . "</p></blockquote>";
 }
 ?>
