@@ -160,8 +160,12 @@ $app->get('/:site', function ($site) use ($app) {
 
         // select des infos deja presentes
         $contentData = $app->ACCES_BASE->SelectBDD('page_content', $SITE_ID, $PAGE_ID);
-        if(isset($contentData['BLOC'])) {
-            $contentData['BLOC'] = View::affBloc($contentData['BLOC']);
+        if(!empty($contentData)) {
+            if (isset($contentData['BLOC'])) {
+                $contentData['BLOC'] = View::affBloc($contentData['BLOC']);
+            }
+        }else{
+            $contentData = array();
         }
         $app->render('accueil.php', array('site' => $site, 'contentData' => $contentData));
 
