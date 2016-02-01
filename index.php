@@ -101,7 +101,7 @@ $app->post('/admin/traitement/:site/:page', function ($site, $page) use ($app) {
             if ($_FILES['doc']['name'][$i]) {
                 move_uploaded_file($_FILES['doc']['tmp_name'][$i], "files/docs/" . $_FILES['doc']['name'][$i]);
                 $directory = ($page != "accueil") ? "../" : "";
-                $dir = $directory . "files/docs/" . $_FILES['docs']['name'][$i];
+                $dir = $directory . "files/docs/" . $_FILES['doc']['name'][$i];
                 $text = str_replace("#FILE#", "<a href=" . $dir . "\">", $text);
                 $text = str_replace("#", "</a>", $text);
             }

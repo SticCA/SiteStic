@@ -38,7 +38,6 @@
                         <li><a href="../<?php echo $site; ?>">Accueil</a></li>
                         <li><a href="../<?php echo $site; ?>/candidater">Candidater</a></li>
                         <li><a href="../<?php echo $site; ?>/contact">Contact</a></li>
-                        <li><a href="../<?php echo $site; ?>/faq">FAQ</a></li>
                         <li><a href="../<?php echo $site; ?>/mentions-legales">Mentions Légales</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
@@ -65,7 +64,7 @@
             </article>
             <article class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                 <h1 class="page-header">
-                    Pédagogies
+                    Pédagogie
                 </h1>
 
                 <div class="content">

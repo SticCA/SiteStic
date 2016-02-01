@@ -75,7 +75,6 @@
                         <li class="<?php if($site == "miage" && $page == "accueil") {?>active<?php } ?>"><a href="<?php echo $directory; ?>admin/miage/accueil">Accueil</a></li>
                         <li class="<?php if($site == "miage" && $page == "candidater") {?>active<?php } ?>"><a href="<?php echo $directory; ?>admin/miage/candidater">Candidater</a></li>
                         <li class="<?php if($site == "miage" && $page == "contact") {?>active<?php } ?>"><a href="<?php echo $directory; ?>admin/miage/contact">Contact</a></li>
-                        <li class="<?php if($site == "miage" && $page == "faq") {?>active<?php } ?>"><a href="<?php echo $directory; ?>admin/miage/faq">FAQ</a></li>
                         <li class="<?php if($site == "miage" && $page == "pedagogie") {?>active<?php } ?>"><a href="<?php echo $directory; ?>admin/miage/pedagogie">Pédagogie</a></li>
                         <li class="<?php if($site == "miage" && $page == "specialisations") {?>active<?php } ?>"><a href="<?php echo $directory; ?>admin/miage/specialisations">Spécialisations</a></li>
                         <li class="<?php if($site == "miage" && $page == "professionnalisation") {?>active<?php } ?>"><a href="<?php echo $directory; ?>admin/miage/professionnalisation">Professionnalisation</a></li>
@@ -88,7 +87,6 @@
                         <li class="<?php if($site == "2ibs" && $page == "accueil") {?>active<?php } ?>"><a href="<?php echo $directory; ?>admin/2ibs/accueil">Accueil</a></li>
                         <li class="<?php if($site == "2ibs" && $page == "candidater") {?>active<?php } ?>"><a href="<?php echo $directory; ?>admin/2ibs/candidater">Candidater</a></li>
                         <li class="<?php if($site == "2ibs" && $page == "contact") {?>active<?php } ?>"><a href="<?php echo $directory; ?>admin/2ibs/contact">Contact</a></li>
-                        <li class="<?php if($site == "2ibs" && $page == "faq") {?>active<?php } ?>"><a href="<?php echo $directory; ?>admin/2ibs/faq">FAQ</a></li>
                         <li class="<?php if($site == "2ibs" && $page == "pedagogie") {?>active<?php } ?>"><a href="<?php echo $directory; ?>admin/2ibs/pedagogie">Pédagogie</a></li>
                         <li class="<?php if($site == "2ibs" && $page == "specialisations") {?>active<?php } ?>"><a href="<?php echo $directory; ?>admin/2ibs/specialisations">Spécialisations</a></li>
                         <li class="<?php if($site == "2ibs" && $page == "professionnalisation") {?>active<?php } ?>"><a href="<?php echo $directory; ?>admin/2ibs/professionnalisation">Professionnalisation</a></li>
