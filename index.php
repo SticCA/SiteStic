@@ -92,17 +92,17 @@ $app->post('/admin/traitement/:site/:page', function ($site, $page) use ($app) {
             $text = $data['text'][$i];
 
             if ($_FILES['img']['name'][$i]) {
-                move_uploaded_file($_FILES['img']['tmp_name'][$i], "files/imgs/" . $_FILES['img']['name'][$i]);
+                move_uploaded_file($_FILES['img']['tmp_name'][$i], "files/imgs/" . str_replace(" ", "_",$_FILES['img']['name'][$i]));
                 $directory = ($page != "accueil") ? "../" : "";
-                $dir = $directory . "files/imgs/" . $_FILES['img']['name'][$i];
+                $dir = $directory . "files/imgs/" . str_replace(" ", "_",$_FILES['img']['name'][$i]);
                 $text = str_replace("#IMG#", "<img class=\"img-responsive\" src=\"" . $dir . "\">", $text);
             }
 
             if ($_FILES['doc']['name'][$i]) {
-                move_uploaded_file($_FILES['doc']['tmp_name'][$i], "files/docs/" . $_FILES['doc']['name'][$i]);
+                move_uploaded_file($_FILES['doc']['tmp_name'][$i], "files/docs/" . str_replace(" ", "_",$_FILES['doc']['name'][$i]));
                 $directory = ($page != "accueil") ? "../" : "";
-                $dir = $directory . "files/docs/" . $_FILES['doc']['name'][$i];
-                $text = str_replace("#FILE#", "<a href=" . $dir . "\">", $text);
+                $dir = $directory . "files/docs/" . str_replace(" ", "_",$_FILES['doc']['name'][$i]);
+                $text = str_replace("#FILE#", "<a href=" . $dir . ">", $text);
                 $text = str_replace("#", "</a>", $text);
             }
 
