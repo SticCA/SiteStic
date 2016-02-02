@@ -80,7 +80,7 @@ if($flash['erreur']) {
                 <label class="control-label">Ajout Image</label>
                 <input name="img[]" type="file" accept="image/*"><br>
                 <label class="control-label">Ajout Document</label>
-                <input name="doc[]" type="file" accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"><br>
+                <input name="doc[]" type="file" accept="application/pdf"><br>
                 <label for="titre">Titre du bloc</label>
                 <input type="text" class="form-control titre" name="titre[]" maxlength="50" size="55" value="<?php echo $value['titre'] ?>">
                 <br><label for="textarea<?php echo $key; ?>">Texte du bloc :

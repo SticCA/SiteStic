@@ -113,7 +113,7 @@ function addFileImg(){
 }
 
 function addFileDoc(){
-    return '<label class="control-label">Ajout Document</label> <input name="doc[]" type="file" accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"><br>';
+    return '<label class="control-label">Ajout Document</label> <input name="doc[]" type="file" accept="application/pdf"><br>';
 }
 
 function addOrder(){
