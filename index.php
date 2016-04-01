@@ -27,7 +27,7 @@ $app->add(new \Slim\Middleware\HttpBasicAuthentication(array(
 // config du mode debug et du dossier
 // contenant les templates
 $app->config(array(
-    'debug' => false,
+    'debug' => true,
     'templates.path' => TEMPLATE_FOLDER
 ));
 
@@ -149,6 +149,11 @@ $app->post('/admin/traitement/:site/:page', function ($site, $page) use ($app) {
 });
 
 //////////////////////////////////////////////////////////////////////////
+
+// pop up location
+$app->get('/location', function () use ($app) {
+    $app->render('location.html');
+});
 
 // Accueil miage / 2ibs
 $app->get('/:site', function ($site) use ($app) {

@@ -87,6 +87,10 @@
                         <?php } ?>
                     </div>
 
+                    <?php if(isset($contentData['BLOC'])){
+                        echo $contentData['BLOC'];
+                    } ?>
+
                     <?php if($site == "miage"){ ?>
                     <div class="row">
                         <div class="col-md-12 toggle" data-toggle="toggle">
@@ -98,7 +102,7 @@
 
                             <article class="row" id="toggle">
                                 <div class="col-md-6">
-                                    <img class="img-reponsive" src="assets/imgs/e-miage.png" alt="e-miage">
+                                    <img class="img-reponsive img-align" src="assets/imgs/e-miage.png" alt="e-miage">
                                 </div>
                                 <div class="col-md-6">
                                     <ul>
@@ -122,10 +126,6 @@
                         </div>
                     </div>
                     <?php } ?>
-
-                    <?php if(isset($contentData['BLOC'])){
-                       echo $contentData['BLOC'];
-                    } ?>
 
                 </div>
             </article>

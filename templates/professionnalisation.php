@@ -109,6 +109,7 @@
     <script type="text/javascript">
         Morris.Donut({
             element: 'graph1',
+            resize: true,
             data: [
                 <?php for($i=5; $i < 10; $i++) {?>
                 {value: <?php echo $contentData['STAT'][$i][2]; ?>, label: '<?php echo $contentData['STAT'][$i][0]; ?>'}<?php if($i != 3) echo ","; ?>
@@ -129,6 +130,7 @@
 
         Morris.Donut({
             element: 'graph2',
+            resize: true,
             data: [
                 <?php for($i=0; $i < 4; $i++) {?>
                 {value: <?php echo $contentData['STAT'][$i][2]; ?>, label: '<?php echo $contentData['STAT'][$i][0]; ?>'}<?php if($i != 3) echo ","; ?>

@@ -27,6 +27,8 @@
     }
 
     #graph1, #graph2{
+        margin-bottom: -20%;
+        margin-top: -30%;
         margin-left: auto;
         margin-right: auto;
     }

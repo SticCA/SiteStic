@@ -24,6 +24,10 @@ body {
     background-color: #EFEFEF;
 }
 
+.h3, h3 {
+    font-size: 20px;
+}
+
 .img-align{
     display: block;
     margin-right: auto;
@@ -35,7 +39,7 @@ body {
 }
 
 .img-reponsive {
-    width: 100%;
+    width: 70%;
     height: auto;
 }
 
@@ -122,9 +126,9 @@ body {
 .toggle header span.titre-toggle{
     position: relative;
     top:-5px;
-    margin-left: 30px;
+    margin-left: 15px;
     color: white;
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .flaticon-worldgrid:before, .flaticon-arrow483:before,
@@ -137,7 +141,7 @@ header .flaticon-suitcase58:before,
 header .flaticon-downloading:before,
 header .flaticon-shopping159:before,
 header .flaticon-pin66:before {
-    font-size: 40px;
+    font-size: 30px;
 }
 .flaticon-worldgrid, .flaticon-arrow483,
 header .flaticon-graduation-cap2,
@@ -153,6 +157,9 @@ header .flaticon-pin66 {
 }
 
 #graph1, #graph2{
+    width: 60%;
+    margin-bottom: -5%;
+    margin-top: -5%;
     margin-left: auto;
     margin-right: auto;
 }

@@ -96,7 +96,9 @@
 
                             <article class="row" id="toggle2">
                                 <div class="col-md-6">
-                                    <img class="img-reponsive" src="../assets/imgs/plan.jpg" alt="e-miage">
+                                    <a href="#location" onclick="locationUPJV();">
+                                        <img style="width: 100%; height: auto;" src="../assets/imgs/plan.jpg" alt="location">
+                                    </a>
                                 </div>
                                 <div class="col-md-6">
 
