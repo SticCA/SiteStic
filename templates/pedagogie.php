@@ -58,7 +58,7 @@
                 </ul>
 
                 <div id="content-img">
-                    <img class="img-align" src="../assets/imgs/upjv.jpg" alt="UPVJ Picardie" width="120">
+                    <img class="img-align" src="../assets/imgs/upjv_<?php echo $site; ?>.png" alt="UPVJ Picardie" width="120">
                 </div>
 
             </article>
