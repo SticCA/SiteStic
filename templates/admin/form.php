@@ -6,6 +6,26 @@ if($flash['erreur']) {
     echo "<blockquote class='erreur'><p>" . $flash['erreur'] . "</p></blockquote>";
 }
 ?>
+
+<div id="select-doc" style="display: none;">
+<label class="control-label">Ajout Document *</label><br>
+<select name="doc[]">
+    <option>Choisissez ...</option>
+    <?php
+    $dir = "files/docs";
+    if (is_dir($dir)) {
+        $direc = opendir($dir);
+        while ($file = readdir($direc)) {
+            if (is_file("$dir/$file")) {
+                echo '<option value="files/docs/'.$file.'">'.$file.'</option>';
+            }
+        }
+        closedir($direc);
+    }
+    ?>
+</select><br>
+</div>
+
 <form method="post" enctype="multipart/form-data" action="<?php echo $directory.'admin/traitement/'.$site.'/'.$page; ?>">
 
     <?php if($page == "accueil") { ?>
@@ -50,43 +70,62 @@ if($flash['erreur']) {
                 <label for="titre">Image du bloc</label>
                 <br>
                 <label class="radio-inline">
-                    <input type="radio" name="media<?php echo $key; ?>[]" value="worldgrid" required <?php if($value['media1'] == "worldgrid") echo "checked" ?>> <i class="flaticon-worldgrid"></i>
+                    <input type="radio" name="media[<?php echo $key; ?>]" value="worldgrid" required <?php if($value['media1'] == "worldgrid") echo "checked" ?>> <i class="flaticon-worldgrid"></i>
                 </label>
                 <label class="radio-inline">
-                    <input type="radio" name="media<?php echo $key; ?>[]" value="briefcase69" required <?php if($value['media1'] == "briefcase69") echo "checked" ?>> <i class="flaticon-briefcase69"></i>
+                    <input type="radio" name="media[<?php echo $key; ?>]" value="briefcase69" required <?php if($value['media1'] == "briefcase69") echo "checked" ?>> <i class="flaticon-briefcase69"></i>
                 </label>
                 <label class="radio-inline">
-                    <input type="radio" name="media<?php echo $key; ?>[]" value="downloading" required <?php if($value['media1'] == "downloading") echo "checked" ?>> <i class="flaticon-downloading"></i>
+                    <input type="radio" name="media[<?php echo $key; ?>]" value="downloading" required <?php if($value['media1'] == "downloading") echo "checked" ?>> <i class="flaticon-downloading"></i>
                 </label>
                 <label class="radio-inline">
-                    <input type="radio" name="media<?php echo $key; ?>[]" value="edit-text" required <?php if($value['media1'] == "edit-text") echo "checked" ?>> <i class="flaticon-edit-text"></i>
+                    <input type="radio" name="media[<?php echo $key; ?>]" value="edit-text" required <?php if($value['media1'] == "edit-text") echo "checked" ?>> <i class="flaticon-edit-text"></i>
                 </label>
                 <label class="radio-inline">
-                    <input type="radio" name="media<?php echo $key; ?>[]" value="graduation-cap2" required <?php if($value['media1'] == "graduation-cap2") echo "checked" ?>> <i class="flaticon-graduation-cap2"></i>
+                    <input type="radio" name="media[<?php echo $key; ?>]" value="graduation-cap2" required <?php if($value['media1'] == "graduation-cap2") echo "checked" ?>> <i class="flaticon-graduation-cap2"></i>
                 </label>
                 <label class="radio-inline">
-                    <input type="radio" name="media<?php echo $key; ?>[]" value="magnifier13" required <?php if($value['media1'] == "magnifier13") echo "checked" ?>> <i class="flaticon-magnifier13"></i>
+                    <input type="radio" name="media[<?php echo $key; ?>]" value="magnifier13" required <?php if($value['media1'] == "magnifier13") echo "checked" ?>> <i class="flaticon-magnifier13"></i>
                 </label>
                 <label class="radio-inline">
-                    <input type="radio" name="media<?php echo $key; ?>[]" value="mark1" required <?php if($value['media1'] == "mark1") echo "checked" ?>> <i class="flaticon-mark1"></i>
+                    <input type="radio" name="media[<?php echo $key; ?>]" value="mark1" required <?php if($value['media1'] == "mark1") echo "checked" ?>> <i class="flaticon-mark1"></i>
                 </label>
                 <label class="radio-inline">
-                    <input type="radio" name="media<?php echo $key; ?>[]" value="shopping159" required <?php if($value['media1'] == "shopping159") echo "checked" ?>> <i class="flaticon-shopping159"></i>
+                    <input type="radio" name="media[<?php echo $key; ?>]" value="shopping159" required <?php if($value['media1'] == "shopping159") echo "checked" ?>> <i class="flaticon-shopping159"></i>
                 </label>
                 <label class="radio-inline">
-                    <input type="radio" name="media<?php echo $key; ?>[]" value="suitcase58" required <?php if($value['media1'] == "suitcase58") echo "checked" ?>> <i class="flaticon-suitcase58"></i>
+                    <input type="radio" name="media[<?php echo $key; ?>]" value="suitcase58" required <?php if($value['media1'] == "suitcase58") echo "checked" ?>> <i class="flaticon-suitcase58"></i>
                 </label>
                 <br>
-                <label class="control-label">Ajout Image</label>
-                <input name="img[]" type="file" accept="image/*"><br>
-                <label class="control-label">Ajout Document</label>
-                <input name="doc[]" type="file" accept="application/pdf"><br>
+                <label class="control-label">Ajout Document *</label><br>
+                <select name="doc[]">
+                    <option>Choisissez ...</option>
+                <?php
+                $dir = "files/docs";
+                if (is_dir($dir)) {
+                    $direc = opendir($dir);
+                    while ($file = readdir($direc)) {
+                        if (is_file("$dir/$file")) {
+                            $tmp = '<option value="files/docs/'.$file.'"';
+
+                            if('files/docs/'.$file == $value['media2']){
+                                $tmp .= ' selected';
+                            }
+
+                            $tmp .= '>'.$file.'</option>';
+
+                            echo $tmp;
+                        }
+                    }
+                    closedir($direc);
+                }
+                ?>
+                </select><br>
                 <label for="titre">Titre du bloc</label>
                 <input type="text" class="form-control titre" name="titre[]" maxlength="50" size="55" value="<?php echo $value['titre'] ?>">
                 <br><label for="textarea<?php echo $key; ?>">Texte du bloc :
-                    <br>* Pour afficher l'image précédement ajouté, il faut ajouter "#IMG#" dans le texte
-                    <br>** Pour afficher le fichier précédement ajouté, il faut ajouter "#FILE#Texte du lien#" dans le texte</label>
-                <textarea id="textarea<?php echo $key; ?>" name="text[]"><?php echo str_replace("assets", "../../assets", str_replace("files", "../../files", $value['text'])); ?></textarea>
+                    <br>* Pour afficher le fichier précédement ajouté, il faut ajouter "#FILE#Texte du lien#" dans le texte</label>
+                <textarea id="textarea<?php echo $key; ?>" name="text[]"><?php echo str_replace("../assets", "../../assets", str_replace("files", "../../files", $value['text'])); ?></textarea>
             </div>
             <script type="text/javascript">initTinyMce(<?php echo $key; ?>);</script>
         <?php } } ?>

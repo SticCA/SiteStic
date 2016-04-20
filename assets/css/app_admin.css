@@ -1,14 +1,3 @@
-@font-face {
-    font-family: 'sansationregular';
-    src: url('../fonts/Sansation-Regular-webfont.eot');
-    src: url('../fonts/Sansation-Regular-webfont.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/Sansation-Regular-webfont.woff') format('woff'),
-    url('../fonts/Sansation-Regular-webfont.ttf') format('truetype'),
-    url('../fonts/Sansation-Regular-webfont.svg#sansationregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
 html {
     position: relative;
     min-height: 100%;
@@ -19,7 +8,7 @@ body {
 }
 
 *{
-    font-family: sansationregular, Tahoma, Verdana, Segoe, sans-serif;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
 }
 
 .img-align{
@@ -149,4 +138,47 @@ blockquote.info{
 blockquote.erreur{
     border-left: 8px solid red;
     color: red;
+}
+
+.mediatheque{
+    margin-bottom: 10px;
+}
+.mediatheque a {
+    color: white;
+    font-size: 15px;
+}
+
+.mediatheque a:hover {
+    text-decoration: none;
+}
+
+.media-aff{
+    margin-top: 5px;
+    padding: 5px;
+}
+
+.media-aff a{
+    font-size: 12px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.media-aff .control-img{
+    width: 150px;
+    height: 150px;
+    padding-bottom: 2px;
+}
+.media-aff .control-doc{
+    width: 150px;
+    height: 50px;
+    padding-bottom: 2px;
+}
+
+.media-aff .control-img img{
+    width: 150px;
+}
+
+.control-btn{
+    margin-top: 5px;
+    text-align: center;
 }

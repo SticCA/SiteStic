@@ -44,6 +44,29 @@ $app->notFound(function() use ($app) {
 
 //////////////////////////////////////////////////////////////////////////
 
+// Gestion de la mediatheque
+
+$app->get('/admin/mediatheque', function () use ($app) {
+    $app->render('admin/mediatheque.php', array('page' => "mediatheque", 'site' => "miage"));
+});
+
+$app->get('/admin/mediatheque/delete/:type/:file', function ($type, $file) use ($app) {
+    $dir = "files/$type/".urldecode($file);
+    @unlink($dir);
+    $app->redirect("../../../../admin/mediatheque");
+});
+
+$app->post('/admin/mediatheque/add', function () use ($app) {
+
+    if (isset($_FILES['img'])) {
+        move_uploaded_file($_FILES['img']['tmp_name'], "files/imgs/" . str_replace(" ", "_",$_FILES['img']['name']));
+    }elseif (isset($_FILES['doc'])) {
+        move_uploaded_file($_FILES['doc']['tmp_name'], "files/docs/" . str_replace(" ", "_",$_FILES['doc']['name']));
+    }
+
+    $app->redirect("../../admin/mediatheque");
+});
+
 // Accueil admin + gestion des formulaires
 $app->get('/admin(/)(:site)(/)(:page)', function ($site = "", $page = "") use ($app) {
 
@@ -86,23 +109,20 @@ $app->post('/admin/traitement/:site/:page', function ($site, $page) use ($app) {
             }
         }
 
+        $params = array();
+
         // enregistrement des blocs
         for ($i = 0; $i < sizeof($data['titre']); $i++) {
 
             $text = $data['text'][$i];
 
-            if ($_FILES['img']['name'][$i]) {
-                move_uploaded_file($_FILES['img']['tmp_name'][$i], "files/imgs/" . str_replace(" ", "_",$_FILES['img']['name'][$i]));
+            if ($data['doc'][$i]) {
+                $params = array(
+                    'MEDIA2' => $data['doc'][$i]
+                );
                 $directory = ($page != "accueil") ? "../" : "";
-                $dir = $directory . "files/imgs/" . str_replace(" ", "_",$_FILES['img']['name'][$i]);
-                $text = str_replace("#IMG#", "<img class=\"img-responsive\" src=\"" . $dir . "\">", $text);
-            }
-
-            if ($_FILES['doc']['name'][$i]) {
-                move_uploaded_file($_FILES['doc']['tmp_name'][$i], "files/docs/" . str_replace(" ", "_",$_FILES['doc']['name'][$i]));
-                $directory = ($page != "accueil") ? "../" : "";
-                $dir = $directory . "files/docs/" . str_replace(" ", "_",$_FILES['doc']['name'][$i]);
-                $text = str_replace("#FILE#", "<a href=" . $dir . ">", $text);
+                $dir = $directory . $data['doc'][$i];
+                $text = str_replace("#FILE#", "<a href=" . $dir . " target=\"_blank\">", $text);
                 $text = str_replace("#", "</a>", $text);
             }
 
@@ -111,16 +131,14 @@ $app->post('/admin/traitement/:site/:page', function ($site, $page) use ($app) {
             $text = ($page != "accueil") ? str_replace("../../files", "../files", $text) : str_replace("../../files", "files", $text);
             $text = str_replace("<table", "<table class=\"table table-bordered\"", $text);
 
-            $params = array(
+            $params += array(
                 'SITE_ID' => $data['SITE_ID'],
                 'PAGE_ID' => $data['PAGE_ID'],
                 'ZONE_ORDER' => $data['order'][$i],
                 'ZONE_TITRE_BLOC' => $data['titre'][$i],
                 'ZONE_TEXT_BLOC' => $text,
-                'MEDIA1' => $data['media' . $i][0]
+                'MEDIA1' => $data['media'][$i]
             );
-
-            unset($data['media' . $i]);
 
             $app->ACCES_BASE->InsertBDD('page_content', $params);
         }
@@ -130,6 +148,7 @@ $app->post('/admin/traitement/:site/:page', function ($site, $page) use ($app) {
         unset($data['titre']);
         unset($data['text']);
         unset($data['order']);
+        unset($data['media']);
 
 
         if(!$validity) {

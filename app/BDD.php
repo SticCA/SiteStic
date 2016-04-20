@@ -62,7 +62,8 @@ class BDD
                     'order' => $resultat->ZONE_ORDER,
                     'titre' => $resultat->ZONE_TITRE_BLOC,
                     'text' => $resultat->ZONE_TEXT_BLOC,
-                    'media1' => $resultat->MEDIA1
+                    'media1' => $resultat->MEDIA1,
+                    'media2' => $resultat->MEDIA2
                 );
             }
         }

@@ -69,7 +69,7 @@ function addBloc(){
 
     //label textearea
     var label_txt = document.createElement("label");
-    $(label_txt).html("<br>Texte du bloc :<br>* Pour afficher l\'image précédement ajouté, il faut ajouter \"#IMG#\" dans le texte<br>** Pour afficher le fichier précédement ajouté, il faut ajouter \"#FILE#Texte du lien#\" dans le texte");
+    $(label_txt).html("<br>Texte du bloc :<br>* Pour afficher le fichier précédement ajouté, il faut ajouter \"#FILE#Texte du lien#\" dans le texte");
 
     // Textearea Tinymce
     var text = document.createElement("textarea");
@@ -82,7 +82,6 @@ function addBloc(){
     $(img).appendTo("#" + bloc);
     $("#" + bloc).append(addOrder());
     $("#" + bloc).append(addIcon());
-    $("#" + bloc).append(addFileImg());
     $("#" + bloc).append(addFileDoc());
     $(label_titre).appendTo("#" + bloc);
     $(input).appendTo("#" + bloc);
@@ -108,12 +107,8 @@ function delBloc(bloc){
     }
 }
 
-function addFileImg(){
-    return '<label class="control-label">Ajout Image</label> <input name="img[]" type="file" accept="image/*"><br>';
-}
-
 function addFileDoc(){
-    return '<label class="control-label">Ajout Document</label> <input name="doc[]" type="file" accept="application/pdf"><br>';
+    return $('#select-doc').html();
 }
 
 function addOrder(){
@@ -121,5 +116,11 @@ function addOrder(){
 }
 
 function addIcon(){
-    return '<label for="titre">Image du bloc</label> <br/> <label class="radio-inline"> <input type="radio" name="media'+(num-1)+'[]" value="worldgrid" required> <i class="flaticon-worldgrid"></i> </label> <label class="radio-inline"> <input type="radio" name="media'+(num-1)+'[]" value="briefcase69" required> <i class="flaticon-briefcase69"></i> </label> <label class="radio-inline"> <input type="radio" name="media'+(num-1)+'[]" value="downloading" required> <i class="flaticon-downloading"></i> </label> <label class="radio-inline"> <input type="radio" name="media'+(num-1)+'[]" value="edit-text" required> <i class="flaticon-edit-text"></i> </label> <label class="radio-inline"> <input type="radio" name="media'+(num-1)+'[]" value="graduation-cap2" required> <i class="flaticon-graduation-cap2"></i> </label> <label class="radio-inline"> <input type="radio" name="media'+(num-1)+'[]" value="magnifier13" required> <i class="flaticon-magnifier13"></i> </label> <label class="radio-inline"> <input type="radio" name="media'+(num-1)+'[]" value="mark1" required> <i class="flaticon-mark1"></i> </label> <label class="radio-inline"> <input type="radio" name="media'+(num-1)+'[]" value="shopping159" required> <i class="flaticon-shopping159"></i> </label> <label class="radio-inline"> <input type="radio" name="media'+(num-1)+'[]" value="suitcase58" required> <i class="flaticon-suitcase58"></i> </label> <br/>';
+    return '<label for="titre">Image du bloc</label> <br/> <label class="radio-inline"> <input type="radio" name="media['+(num-1)+']" value="worldgrid" required> <i class="flaticon-worldgrid"></i> </label> <label class="radio-inline"> <input type="radio" name="media['+(num-1)+']" value="briefcase69" required> <i class="flaticon-briefcase69"></i> </label> <label class="radio-inline"> <input type="radio" name="media['+(num-1)+']" value="downloading" required> <i class="flaticon-downloading"></i> </label> <label class="radio-inline"> <input type="radio" name="media['+(num-1)+']" value="edit-text" required> <i class="flaticon-edit-text"></i> </label> <label class="radio-inline"> <input type="radio" name="media['+(num-1)+']" value="graduation-cap2" required> <i class="flaticon-graduation-cap2"></i> </label> <label class="radio-inline"> <input type="radio" name="media['+(num-1)+']" value="magnifier13" required> <i class="flaticon-magnifier13"></i> </label> <label class="radio-inline"> <input type="radio" name="media['+(num-1)+']" value="mark1" required> <i class="flaticon-mark1"></i> </label> <label class="radio-inline"> <input type="radio" name="media['+(num-1)+']" value="shopping159" required> <i class="flaticon-shopping159"></i> </label> <label class="radio-inline"> <input type="radio" name="media['+(num-1)+']" value="suitcase58" required> <i class="flaticon-suitcase58"></i> </label> <br/>';
+}
+
+function del(path){
+    if(confirm("Etes-vous sûr de vouloir supprimer cette image ?")) {
+        window.location.href = path;
+    }
 }

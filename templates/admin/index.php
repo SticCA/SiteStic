@@ -60,6 +60,10 @@
     <div class="row">
         <article class="col-sm-3 col-md-2 sidebar">
 
+            <div class="mediatheque">
+                <a class="btn btn-info" href="<?php echo $directory; ?>admin/mediatheque">Médiathèque</a>
+            </div>
+
             <ul id="myTabs" class="nav nav-tabs" role="tablist">
                 <li id="role_miage" role="presentation" class="<?php if($site == "miage") {?>active<?php } ?>">
                     <a href="#miage" id="miage-tab" role="tab" data-toggle="tab" aria-controls="miage" aria-expanded="true">MIAGE</a>
@@ -97,7 +101,7 @@
             </div>
 
             <div id="content-img">
-                <img class="img-align" src="<?php echo $directory; ?>assets/imgs/upjv.jpg" alt="UPVJ Picardie" width="120">
+                <img class="img-align" src="<?php echo $directory; ?>assets/imgs/upjv_miage.png" alt="UPVJ Picardie" width="120">
             </div>
 
         </article>
