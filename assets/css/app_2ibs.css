@@ -15,6 +15,10 @@
     border-bottom: 1px solid #4F9F84;
 }
 
+.box {
+    border: 1px solid #4F9F84;
+}
+
 .navbar-header{
     height: 100px;
 }

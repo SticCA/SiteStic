@@ -11,6 +11,10 @@
     height: 100px;
 }
 
+.box {
+    border: 1px solid #1F9ADC;
+}
+
 .navbar{
     min-height: 100px;
 }
