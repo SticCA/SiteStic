@@ -109,6 +109,15 @@ $app->post('/admin/traitement/:site/:page', function ($site, $page) use ($app) {
             }
         }
 
+        $tmp = array();
+
+        foreach($data['media'] as $val){
+            $tmp[] = $val;
+        }
+
+        $data['media'] = $tmp;
+        unset($tmp);
+
         $params = array();
 
         // enregistrement des blocs
@@ -116,14 +125,14 @@ $app->post('/admin/traitement/:site/:page', function ($site, $page) use ($app) {
 
             $text = $data['text'][$i];
 
-            if ($data['doc'][$i]) {
+            if ($data['doc'][$i] && $data['doc'][$i] != "Choisissez ...") {
                 $params = array(
                     'MEDIA2' => $data['doc'][$i]
                 );
                 $directory = ($page != "accueil") ? "../" : "";
                 $dir = $directory . $data['doc'][$i];
-                $text = str_replace("#FILE#", "<a href=" . $dir . " target=\"_blank\">", $text);
-                $text = str_replace("#", "</a>", $text);
+                $text = str_replace("##FILE##", "<a href=" . $dir . " target=\"_blank\">", $text);
+                $text = str_replace("##", "</a>", $text);
             }
 
             $text = str_replace("<img ", "<img class=\"img-responsive\" ", $text);

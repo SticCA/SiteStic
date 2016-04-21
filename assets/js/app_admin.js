@@ -69,7 +69,7 @@ function addBloc(){
 
     //label textearea
     var label_txt = document.createElement("label");
-    $(label_txt).html("<br>Texte du bloc :<br>* Pour afficher le fichier précédement ajouté, il faut ajouter \"#FILE#Texte du lien#\" dans le texte");
+    $(label_txt).html("<br>Texte du bloc :<br>* Pour afficher le fichier précédement ajouté, il faut ajouter \"##FILE##Texte du lien##\" dans le texte");
 
     // Textearea Tinymce
     var text = document.createElement("textarea");

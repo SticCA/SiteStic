@@ -124,7 +124,7 @@ if($flash['erreur']) {
                 <label for="titre">Titre du bloc</label>
                 <input type="text" class="form-control titre" name="titre[]" maxlength="50" size="55" value="<?php echo $value['titre'] ?>">
                 <br><label for="textarea<?php echo $key; ?>">Texte du bloc :
-                    <br>* Pour afficher le fichier précédement ajouté, il faut ajouter "#FILE#Texte du lien#" dans le texte</label>
+                    <br>* Pour afficher le fichier précédement ajouté, il faut ajouter "##FILE##Texte du lien##" dans le texte</label>
                 <textarea id="textarea<?php echo $key; ?>" name="text[]"><?php echo str_replace("../assets", "../../assets", str_replace("files", "../../files", $value['text'])); ?></textarea>
             </div>
             <script type="text/javascript">initTinyMce(<?php echo $key; ?>);</script>
