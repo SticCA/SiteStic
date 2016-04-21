@@ -1,0 +1,59 @@
+@media screen and (max-width: 993px) {
+
+    #content-img{
+        margin-top: 0;
+        padding-bottom: 5%;
+    }
+
+    .box{
+        height: inherit;
+    }
+
+    #circle{
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .toggle header span.titre-toggle{
+        position: relative;
+        top: -5px;
+        right: 20px;
+        font-size: 18px;
+    }
+
+    p img {
+        width: 80%;
+        height: auto;
+    }
+
+    #graph1, #graph2{
+        margin-bottom: -20%;
+        margin-top: -30%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .flaticon-worldgrid:before, .flaticon-arrow483:before,
+    header .flaticon-graduation-cap2:before,
+    header .flaticon-mark1:before,
+    header .flaticon-magnifier13:before,
+    header .flaticon-edit-text:before,
+    header .flaticon-briefcase69:before,
+    header .flaticon-suitcase58:before,
+    header .flaticon-downloading:before,
+    header .flaticon-shopping159:before,
+    header .flaticon-pin66:before {
+        font-size: 30px;
+    }
+
+    iframe{
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-md-2 {
+        width: 15.2em;
+    }
+}
