@@ -152,8 +152,7 @@ $app->post('/admin/traitement/:site/:page', function ($site, $page) use ($app) {
             $app->ACCES_BASE->InsertBDD('page_content', $params);
         }
 
-        unset($_FILES['img']);
-        unset($_FILES['docs']);
+        unset($data['doc']);
         unset($data['titre']);
         unset($data['text']);
         unset($data['order']);
