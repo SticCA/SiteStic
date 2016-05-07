@@ -51,8 +51,21 @@ $app->get('/admin/mediatheque', function () use ($app) {
 });
 
 $app->get('/admin/mediatheque/delete/:type/:file', function ($type, $file) use ($app) {
-    $dir = "files/$type/".urldecode($file);
-    @unlink($dir);
+
+    $file = urldecode($file);
+
+    if($app->ACCES_BASE->CheckFileBDD('page_content', $file)) {
+
+        $dir = "files/$type/" . $file;
+        @unlink($dir);
+        $app->flash('info', 'Fichier supprimé !');
+
+    }else{
+
+        $app->flash('erreur', 'Impossible de le supprimer car le fichier est utilisé !');
+
+    }
+
     $app->redirect("../../../../admin/mediatheque");
 });
 

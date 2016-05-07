@@ -66,6 +66,14 @@
 
             <div class="content">
 
+                <?php
+                if($flash['info']) {
+                    echo "<blockquote class='info'><p>" . $flash['info'] . "</p></blockquote>";
+                }
+                if($flash['erreur']) {
+                    echo "<blockquote class='erreur'><p>" . $flash['erreur'] . "</p></blockquote>";
+                }
+                ?>
 
                 <form style="float: right; margin-right: 45%;" method="post" enctype="multipart/form-data" action="../admin/mediatheque/add">
                     <label class="control-label">Ajout Document</label>

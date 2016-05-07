@@ -81,6 +81,18 @@ class BDD
         $req->execute();
     }
 
+    public function CheckFileBDD($table, $file)
+    {
+        $req = $this->bdd->prepare("SELECT * FROM $table WHERE ZONE_TEXT_BLOC LIKE '%".$file."%'");
+        $req->execute();
+        $count = $req->rowCount();
+        if($count > 0){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
     /**
      * @return mixed
      */
