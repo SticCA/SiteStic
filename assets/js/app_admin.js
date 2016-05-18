@@ -119,8 +119,8 @@ function addIcon(){
     return '<label for="titre">Image du bloc</label> <br/> <label class="radio-inline"> <input type="radio" name="media['+(num-1)+']" value="worldgrid" required> <i class="flaticon-worldgrid"></i> </label> <label class="radio-inline"> <input type="radio" name="media['+(num-1)+']" value="briefcase69" required> <i class="flaticon-briefcase69"></i> </label> <label class="radio-inline"> <input type="radio" name="media['+(num-1)+']" value="downloading" required> <i class="flaticon-downloading"></i> </label> <label class="radio-inline"> <input type="radio" name="media['+(num-1)+']" value="edit-text" required> <i class="flaticon-edit-text"></i> </label> <label class="radio-inline"> <input type="radio" name="media['+(num-1)+']" value="graduation-cap2" required> <i class="flaticon-graduation-cap2"></i> </label> <label class="radio-inline"> <input type="radio" name="media['+(num-1)+']" value="magnifier13" required> <i class="flaticon-magnifier13"></i> </label> <label class="radio-inline"> <input type="radio" name="media['+(num-1)+']" value="mark1" required> <i class="flaticon-mark1"></i> </label> <label class="radio-inline"> <input type="radio" name="media['+(num-1)+']" value="shopping159" required> <i class="flaticon-shopping159"></i> </label> <label class="radio-inline"> <input type="radio" name="media['+(num-1)+']" value="suitcase58" required> <i class="flaticon-suitcase58"></i> </label> <br/>';
 }
 
-function del(path){
-    if(confirm("Etes-vous sûr de vouloir supprimer cette image ?")) {
+function del(path, type){
+    if(confirm("Etes-vous sûr de vouloir supprimer "+type+" ?")) {
         window.location.href = path;
     }
 }

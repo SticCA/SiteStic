@@ -113,7 +113,7 @@
                                             <img src="../'.$link.'">
                                         </div>
                                         <div class="control-btn">
-                                            <a href="#del" onclick="del(\'../admin/mediatheque/delete/imgs/'.urlencode($file).'\')" class="btn btn-danger">Supprimer</a>
+                                            <a href="#del" onclick="del(\'../admin/mediatheque/delete/imgs/'.urlencode($file).'\', \'cette image\')" class="btn btn-danger">Supprimer</a>
                                         </div>
                                     </div>
                                     ';
@@ -136,7 +136,7 @@
                                             '.substr($file,0,20).'
                                         </div>
                                         <div class="control-btn">
-                                            <a href="#del" onclick="del(\'../admin/mediatheque/delete/docs/'.urlencode($file).'\')" class="btn btn-danger">Supprimer</a>
+                                            <a href="#del" onclick="del(\'../admin/mediatheque/delete/docs/'.urlencode($file).'\', \'ce document\')" class="btn btn-danger">Supprimer</a>
                                         </div>
                                     </div>
                                     ';
